@@ -14,6 +14,6 @@ export const environment = {
     messagingSenderId: "252141486095"
   },
   citiskopeApi: {
-    baseUrl: "http://localhost:5000"
+    baseUrl: "http://localhost:8080"
   }
 };
