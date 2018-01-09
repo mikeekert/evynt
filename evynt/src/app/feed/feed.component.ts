@@ -11,7 +11,7 @@ import { environment } from "../../environments/environment";
 export class FeedComponent implements OnInit {
   feed: string;
 
-  private feedApiUrn = "api/Post/ByUser/oWTk0F78pIN8UjKl9Hxz9RuvBOL2"; //TODO: update this to /api/Post/Latitude/{latitude}/Longitude/{longitude}/Range/{range}/Minimum/{minimum}
+  private feedApiUrn = "api/Post/ByUser/xn4FRYDxwoeXiasmjC6S822xjeU2"; //TODO: update this to /api/Post/Latitude/{latitude}/Longitude/{longitude}/Range/{range}/Minimum/{minimum}
   private apiUriBase: string;
   
   constructor(private http: AuthHttp) { 
