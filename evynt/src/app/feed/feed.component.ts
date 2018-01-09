@@ -21,7 +21,7 @@ export class FeedComponent implements OnInit {
   ngOnInit() {
     //Gets posts
     this.getFeed().subscribe(response => {
-      this.feed = response.text(); //TODO: make objects to return ot the view
+      this.feed = response.text(); //TODO: make objects to return to the view
     });
   }
 
