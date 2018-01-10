@@ -19,14 +19,16 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "sass/main.scss",
+        "../node_modules/bootstrap/dist/css/bootstrap.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.dev.ts",
         "prod": "environments/environment.prod.ts",
-        "localdev":"environments/environment.ts"
+        "localdev": "environments/environment.ts"
       }
     }
   ],
@@ -55,7 +57,8 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
-    "component": {}
+    "styleExt": "scss",
+    "component": {
+    }
   }
 }

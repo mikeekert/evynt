@@ -6,7 +6,7 @@ import { User } from 'firebase/app';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'Evynt';
@@ -25,7 +25,7 @@ export class AppComponent {
       }
       else{
         let user = val as User;
-        user.getToken().then(token => {
+        user.getIdToken().then(token => {
           localStorage.setItem('token', token);
         })
       }
