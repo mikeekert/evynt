@@ -3,11 +3,11 @@
     <div class="col-12" *ngFor="let i of feed">
       <div class="card">
         <div class="card-header">
-          <app-feed-user></app-feed-user>
+          <app-feed-user [feed]="i"></app-feed-user>
         </div>
-        <app-feed-details></app-feed-details>
+        <app-feed-details [feed]="i"></app-feed-details>
         <div class="card-block">
-          blah
+          <app-feed-description [feed]="i"></app-feed-description>
         </div>
       </div>
     </div>

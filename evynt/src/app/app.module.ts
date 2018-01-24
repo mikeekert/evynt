@@ -14,13 +14,15 @@ import { AuthModule } from './/app-auth.module';
 import { JwtHelper } from 'angular2-jwt';
 import { FeedDetailsComponent } from './feed/feed-details/feed-details.component';
 import { FeedUserComponent } from './feed/feed-user/feed-user.component';
+import { FeedDescriptionComponent } from './feed/feed-description/feed-description.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FeedComponent,
     FeedDetailsComponent,
-    FeedUserComponent
+    FeedUserComponent,
+    FeedDescriptionComponent
   ],
   imports: [
     BrowserModule,

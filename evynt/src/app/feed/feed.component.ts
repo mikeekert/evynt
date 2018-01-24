@@ -11,6 +11,7 @@ import {FeedItem} from './feed-item';
 @Component({selector: 'app-feed', templateUrl: './feed.component.html', styleUrls: ['./feed.component.scss']})
 export class FeedComponent implements OnInit {
   feed : FeedItem[];
+  location : any;
 
   private feedApiUrn = "api/Post/ByUser/xn4FRYDxwoeXiasmjC6S822xjeU2"; //TODO: update this to /api/Post/Latitude/{latitude}/Longitude/{longitude}/Range/{range}/Minimum/{minimum}
   private apiUriBase : string;
@@ -20,6 +21,17 @@ export class FeedComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    // grab coords
+    this
+      .getPosition()
+      .then((position) => {
+        this.location = position;
+      })
+      .catch((err) => {
+        // use error for incompatible browsers
+      });
+
     //Gets posts
     this
       .getFeed()
@@ -27,6 +39,14 @@ export class FeedComponent implements OnInit {
         this.feed = data; //TODO: make objects to return to the view
         console.log(this.feed);
       })
+  }
+
+  getPosition() {
+    return new Promise(function (resolve, reject) {
+      navigator
+        .geolocation
+        .getCurrentPosition(resolve, reject);
+    });
   }
 
   getFeed() {
@@ -38,5 +58,4 @@ export class FeedComponent implements OnInit {
       })
       .map(res => res.json().data)
   }
-
 }
