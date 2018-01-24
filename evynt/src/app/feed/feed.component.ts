@@ -6,6 +6,7 @@ import {environment} from "../../environments/environment";
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
+
 import {FeedItem} from './feed-item';
 
 @Component({selector: 'app-feed', templateUrl: './feed.component.html', styleUrls: ['./feed.component.scss']})
@@ -29,7 +30,7 @@ export class FeedComponent implements OnInit {
         this.location = position;
       })
       .catch((err) => {
-        // use error for incompatible browsers
+        // TODO: use error handling for incompatible browsers
       });
 
     //Gets posts
