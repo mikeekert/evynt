@@ -4,7 +4,6 @@ import {AuthHttp} from 'angular2-jwt';
 import {environment} from "../../environments/environment";
 
 import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 
 import {FeedItem} from './feed-item';

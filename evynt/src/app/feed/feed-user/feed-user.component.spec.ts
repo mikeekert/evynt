@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FeedCommentsComponent } from './feed-comments.component';
+import { FeedUserComponent } from './feed-user.component';
 
-describe('FeedCommentsComponent', () => {
-  let component: FeedCommentsComponent;
-  let fixture: ComponentFixture<FeedCommentsComponent>;
+describe('FeedUserComponent', () => {
+  let component: FeedUserComponent;
+  let fixture: ComponentFixture<FeedUserComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FeedCommentsComponent ]
+      declarations: [ FeedUserComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FeedCommentsComponent);
+    fixture = TestBed.createComponent(FeedUserComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
