@@ -6,13 +6,12 @@ import {environment} from "../../environments/environment";
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-
 import {FeedItem} from './feed-item';
 
 @Component({selector: 'app-feed', templateUrl: './feed.component.html', styleUrls: ['./feed.component.scss']})
 export class FeedComponent implements OnInit {
   feed : FeedItem[];
-  location : any;
+  location : {};
 
   private feedApiUrn = "api/Post/ByUser/xn4FRYDxwoeXiasmjC6S822xjeU2"; //TODO: update this to /api/Post/Latitude/{latitude}/Longitude/{longitude}/Range/{range}/Minimum/{minimum}
   private apiUriBase : string;
