@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row align-items-start">
+    <div class="loader" *ngIf='!feed'></div>
+    <div class="col-12" *ngFor="let i of feed">
+      <div class="card">
+        <div class="card-header">
+          <app-feed-user [feed]="i"></app-feed-user>
+        </div>
+        <app-feed-details [feed]="i"></app-feed-details>
+        <div class="card-block">
+          <app-feed-description [feed]="i"></app-feed-description>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

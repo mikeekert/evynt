@@ -1,0 +1,17 @@
+@import '../../../sass/abstracts/_variables.scss';
+@import '../../../sass/abstracts/_mixins.scss';
+
+.card-likes {
+    font-weight: 600;
+}
+
+.card-img {
+    border-radius: 0;
+    object-fit: cover;
+    object-position: center;
+    height: 500px;
+    @include mobile {
+        max-height: 300px;
+    }
+}
+
