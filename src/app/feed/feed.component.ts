@@ -13,9 +13,6 @@ export class FeedComponent implements OnInit {
   feed : FeedItem[];
   location : any;
 
-  // TODO: update this to
-  // /api/Post/Latitude/{latitude}/Longitude/{longitude}/PageSize/{pagesize}/Page/
-  // { page}
   private apiUriBase : string;
   private feedApiUrn : string;
 
@@ -35,7 +32,7 @@ export class FeedComponent implements OnInit {
         this
           .getFeed(this.location.coords.longitude, this.location.coords.latitude)
           .subscribe(data => {
-            this.feed = data; //TODO: make objects to return to the view
+            this.feed = data;
             console.log(this.feed);
           })
       })
@@ -52,14 +49,14 @@ export class FeedComponent implements OnInit {
     });
   }
 
-  getFeed(lat, long) {
+  getFeed(long, lat) {
     this.getPosition();
     this.feedApiUrn = "api/Post/Latitude/" + lat + "/Longitude/" + long + "/PageSize/10/Page/1";
     const apiUrl = `${this.apiUriBase}/${this.feedApiUrn}`;
     return this
       .http
       .get(apiUrl, {
-        headers: new Headers({"Accept": "application/json", "Content-Type": "application/json", "Access-Control-Allow-Origin":"*"})
+        headers: new Headers({"Accept": "application/json", "Content-Type": "application/json", "Access-Control-Allow-Origin": "*"})
       })
       .map(res => res.json().data)
   }
