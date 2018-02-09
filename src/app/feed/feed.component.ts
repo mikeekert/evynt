@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Http, Headers} from "@angular/http";
+import {Http, Headers} from '@angular/http';
 import {AuthHttp} from 'angular2-jwt';
-import {environment} from "../../environments/environment";
+import {environment} from '../../environments/environment';
 
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -10,15 +10,15 @@ import {FeedItem} from './feed-item';
 
 @Component({selector: 'app-feed', templateUrl: './feed.component.html', styleUrls: ['./feed.component.scss']})
 export class FeedComponent implements OnInit {
-  feed : FeedItem[];
+  feed: FeedItem[];
   location: any;
 
-  private apiUriBase : string;
-  private feedApiUrn : string;
+  private apiUriBase: string;
+  private feedApiUrn: string;
 
-  constructor(private http : AuthHttp) {
+  constructor(private http: AuthHttp) {
     this.apiUriBase = environment.citiskopeApi.baseUrl;
-  };
+  }
 
   ngOnInit() {
 
@@ -37,7 +37,7 @@ export class FeedComponent implements OnInit {
       .catch((err) => {
         // TODO: use error handling for incompatible browsers
       });
-  };
+  }
 
   getPosition() {
     return new Promise(function (resolve, reject) {
@@ -45,7 +45,7 @@ export class FeedComponent implements OnInit {
         .geolocation
         .getCurrentPosition(resolve, reject);
     });
-  };
+  }
 
   getFeed(long, lat) {
     this.getPosition();
@@ -54,8 +54,8 @@ export class FeedComponent implements OnInit {
     return this
       .http
       .get(apiUrl, {
-        headers: new Headers({"Accept": "application/json", "Content-Type": "application/json"})
+        headers: new Headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
       })
       .map(res => res.json().data);
-  };
-};
+  }
+}

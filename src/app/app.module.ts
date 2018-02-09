@@ -9,7 +9,7 @@ import {environment} from '../environments/environment';
 import {AuthModule} from './/app-auth.module';
 import {FeedModule} from './feed/feed.module';
 
-//services
+// services
 import {JwtHelper} from 'angular2-jwt';
 
 @NgModule({
