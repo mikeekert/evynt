@@ -20,7 +20,9 @@
     "styles": [
       "sass/main.scss"
     ],
-    "scripts": [],
+    "scripts": ["../node_modules/jquery/dist/jquery.min.js",
+      "../node_modules/bootstrap/dist/js/bootstrap.js"
+    ],
     "environmentSource": "environments/environment.ts",
     "environments": {
       "dev": "environments/environment.dev.ts",
