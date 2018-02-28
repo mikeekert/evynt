@@ -15,6 +15,6 @@ export const environment = {
     messagingSenderId: '147360091648'
   },
   citiskopeApi: {
-    baseUrl: 'http://dev-api.citiskope.com'
+    baseUrl: 'https://dev-api.citiskope.com'
   }
 };
