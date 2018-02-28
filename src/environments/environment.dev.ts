@@ -7,14 +7,14 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyCrFUSoLxei3vOf6LXH6bLhtV7yWXl0zwA",
-    authDomain: "citiskope-dev.firebaseapp.com",
-    databaseURL: "https://citiskope-dev.firebaseio.com",
-    projectId: "citiskope-dev",
-    storageBucket: "citiskope-dev.appspot.com",
-    messagingSenderId: "147360091648"
+    apiKey: 'AIzaSyCrFUSoLxei3vOf6LXH6bLhtV7yWXl0zwA',
+    authDomain: 'citiskope-dev.firebaseapp.com',
+    databaseURL: 'https://citiskope-dev.firebaseio.com',
+    projectId: 'citiskope-dev',
+    storageBucket: 'citiskope-dev.appspot.com',
+    messagingSenderId: '147360091648'
   },
   citiskopeApi: {
-    baseUrl: "https://dev-api.citiskope.com"
+    baseUrl: 'https://dev-api.citiskope.com'
   }
 };

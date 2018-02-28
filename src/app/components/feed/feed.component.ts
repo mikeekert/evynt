@@ -1,27 +1,27 @@
 import {Component, OnInit} from '@angular/core';
-import {Http, Headers} from "@angular/http";
+import {Http, Headers} from '@angular/http';
 import {AuthHttp} from 'angular2-jwt';
-import {environment} from "../../environments/environment";
+import {environment} from '../../../environments/environment';
 
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 import {FeedItem} from './feed-item';
+import {Location} from './location';
 
 @Component({selector: 'app-feed', templateUrl: './feed.component.html', styleUrls: ['./feed.component.scss']})
 export class FeedComponent implements OnInit {
-  feed : FeedItem[];
-  location: any;
+  feed: FeedItem[];
+  location: any; // TODO : fix this
 
-  private apiUriBase : string;
-  private feedApiUrn : string;
+  private apiUriBase: string;
+  private feedApiUrn: string;
 
-  constructor(private http : AuthHttp) {
+  constructor(private http: AuthHttp) {
     this.apiUriBase = environment.citiskopeApi.baseUrl;
-  };
+  }
 
   ngOnInit() {
-
     // grab coords
     this
       .getPosition()
@@ -32,12 +32,13 @@ export class FeedComponent implements OnInit {
           .subscribe(data => {
             this.feed = data;
             console.log(this.feed);
+            console.log(position);
           });
       })
       .catch((err) => {
-        // TODO: use error handling for incompatible browsers
+        this.feed = [];
       });
-  };
+  }
 
   getPosition() {
     return new Promise(function (resolve, reject) {
@@ -45,7 +46,7 @@ export class FeedComponent implements OnInit {
         .geolocation
         .getCurrentPosition(resolve, reject);
     });
-  };
+  }
 
   getFeed(long, lat) {
     this.getPosition();
@@ -54,8 +55,8 @@ export class FeedComponent implements OnInit {
     return this
       .http
       .get(apiUrl, {
-        headers: new Headers({"Accept": "application/json", "Content-Type": "application/json"})
+        headers: new Headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
       })
       .map(res => res.json().data);
-  };
-};
+  }
+}
