@@ -7,11 +7,12 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 import {FeedItem} from './feed-item';
+import {Location} from './location';
 
 @Component({selector: 'app-feed', templateUrl: './feed.component.html', styleUrls: ['./feed.component.scss']})
 export class FeedComponent implements OnInit {
   feed: FeedItem[];
-  location: any;
+  location: any; // TODO : fix this
 
   private apiUriBase: string;
   private feedApiUrn: string;
@@ -21,7 +22,6 @@ export class FeedComponent implements OnInit {
   }
 
   ngOnInit() {
-
     // grab coords
     this
       .getPosition()
@@ -32,10 +32,11 @@ export class FeedComponent implements OnInit {
           .subscribe(data => {
             this.feed = data;
             console.log(this.feed);
+            console.log(position);
           });
       })
       .catch((err) => {
-        // TODO: use error handling for incompatible browsers
+        this.feed = [];
       });
   }
 

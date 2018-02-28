@@ -8,6 +8,7 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
 import {environment} from '../environments/environment';
 import {AuthModule} from './/app-auth.module';
 import {FeedModule} from './feed/feed.module';
+import {AppRoutingModule} from '../app/routing/app-routing-module';
 
 // services
 import {JwtHelper} from 'angular2-jwt';
@@ -18,7 +19,8 @@ import {JwtHelper} from 'angular2-jwt';
     BrowserModule, HttpModule, AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AuthModule,
-    FeedModule
+    FeedModule,
+    AppRoutingModule
   ],
   providers: [JwtHelper],
   bootstrap: [AppComponent]
