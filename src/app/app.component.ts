@@ -10,23 +10,24 @@ import { User } from 'firebase/app';
 })
 export class AppComponent {
   title = 'Evynt';
-
+  
   constructor(public afAuth: AngularFireAuth) {
     afAuth.authState.subscribe( val => {
-      if (val == null) {
+      if(val == null){
         afAuth.app.auth().signInAnonymously().catch(function(error) {
           // Handle Errors here.
-          const errorCode = error.code;
-          const errorMessage = error.message;
+          var errorCode = error.code;
+          var errorMessage = error.message;
           console.error(errorCode);
           console.error(errorMessage);
           // ...
         });
-      } else {
-        const user = val as User;
+      }
+      else{
+        let user = val as User;
         user.getIdToken().then(token => {
           localStorage.setItem('token', token);
-        });
+        })
       }
     });
   }

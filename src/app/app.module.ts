@@ -16,7 +16,7 @@ import {AppRoutingModule} from '../app/routing/app-routing-module';
 import {EvyntsModule} from './components/evynts/evynts.module';
 import {ProfileModule} from './components/profile/profile.module';
 
-// services
+//services
 import {JwtHelper} from 'angular2-jwt';
 
 @NgModule({
