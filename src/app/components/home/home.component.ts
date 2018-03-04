@@ -1,28 +1,33 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {EvyntService} from '../../services/evynt.service';
-import {Carousel} from './carousel/carousel';
+import {Carousel, ApiEvyntResponse} from './carousel/carousel';
+import {Subject} from 'rxjs/Subject';
+import {ISubscription} from 'rxjs/Subscription';
 
 @Component({selector: 'app-home', templateUrl: './home.component.html', styleUrls: ['./home.component.scss']})
-export class HomeComponent implements OnInit {
-  carousel: Carousel[] = [];
-  data: [
-    {
-      'url': '',
-      'title': '',
-      'desc': ''
-    }, {
-      'url': '',
-      'title': '',
-      'desc': ''
-    }, {
-      'url': '',
-      'title': '',
-      'desc': ''
-    }
-  ];
+export class HomeComponent implements OnInit,
+OnDestroy {
+  CarouselFeed: Carousel[] = [];
 
-  constructor(evyntService: EvyntService) {}
+  private subscription: ISubscription;
+  constructor(private evyntService: EvyntService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this
+      .evyntService
+      .getFeatured()
+      .subscribe(data => {
+        for (let i = 0; i < data.length; i++) {
+          this
+            .CarouselFeed
+            .push(new Carousel(data[i]));
+        }
+      });
+  }
 
+  ngOnDestroy() {
+    this
+      .subscription
+      .unsubscribe();
+  }
 }

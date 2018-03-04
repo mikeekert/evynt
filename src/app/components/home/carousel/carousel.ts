@@ -3,9 +3,15 @@ export class Carousel {
     Title: string;
     Description: string;
 
-    constructor(image: string, title: string, description: string) {
-        this.Imageurl = image;
-        this.Title = title;
-        this.Description = description;
+    constructor(api: ApiEvyntResponse) {
+        this.Imageurl = api.imageUrl;
+        this.Title = api.name;
+        this.Description = api.description;
     }
+}
+
+export interface ApiEvyntResponse {
+    'imageUrl': string;
+    'description': string;
+    'name': string;
 }

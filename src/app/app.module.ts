@@ -3,6 +3,8 @@ import {NgModule} from '@angular/core';
 import {HttpModule} from '@angular/http';
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireAuthModule} from 'angularfire2/auth';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 import {environment} from '../environments/environment';
 import {AuthModule} from './app-auth.module';
@@ -16,8 +18,10 @@ import {EvyntsModule} from './components/evynts/evynts.module';
 import {ProfileModule} from './components/profile/profile.module';
 import {HomeModule} from './components/home/home.module';
 
+
 // services
 import {JwtHelper} from 'angular2-jwt';
+import {EvyntService} from './services/evynt.service';
 
 @NgModule({
   declarations: [
@@ -30,9 +34,10 @@ import {JwtHelper} from 'angular2-jwt';
     AppRoutingModule,
     EvyntsModule,
     ProfileModule,
-    HomeModule
+    HomeModule,
+    NgbModule.forRoot()
   ],
-  providers: [JwtHelper],
+  providers: [JwtHelper, EvyntService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
