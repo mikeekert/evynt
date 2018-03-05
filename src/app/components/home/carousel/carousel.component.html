@@ -1,0 +1,13 @@
+<section class="container-fluid">
+  <div class="w-50 my-0 m-auto">
+    <ngb-carousel>
+      <ng-template ngbSlide *ngFor="let i of CarouselFeed">
+        <img [src]="i.Imageurl" alt="Random first slide">
+        <div class="carousel-caption">
+          <h3>{{i.Title}}</h3>
+          <p>{{i.Description}}</p>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
+</section>
