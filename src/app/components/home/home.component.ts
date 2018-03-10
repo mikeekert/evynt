@@ -13,8 +13,7 @@ OnDestroy {
   constructor(private evyntService: EvyntService) {}
 
   ngOnInit() {
-    this
-      .evyntService
+    this.evyntService
       .getFeatured()
       .subscribe(data => {
         for (let i = 0; i < data.length; i++) {

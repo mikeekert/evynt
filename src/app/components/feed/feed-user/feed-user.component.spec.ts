@@ -17,6 +17,7 @@ describe('FeedUserComponent', () => {
     fixture = TestBed.createComponent(FeedUserComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    component.feed = [];
   });
 
   it('should create', () => {

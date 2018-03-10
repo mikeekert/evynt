@@ -1,5 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {AuthGuardService} from '../services/auth-guard.service';
+
 import {AppComponent} from '../app.component';
 import {EvyntsComponent} from '../components/evynts/evynts.component';
 import {ProfileComponent} from '../components/profile/profile.component';
@@ -8,13 +10,16 @@ import {HomeComponent} from '../components/home/home.component';
 const routes: Routes = [
     {
         path: '',
-        component: HomeComponent
+        component: HomeComponent, 
+        canActivate: [AuthGuardService]
     }, {
         path: 'evynts',
-        component: EvyntsComponent
+        component: EvyntsComponent, 
+        canActivate: [AuthGuardService]
     }, {
         path: 'evynt/:id',
-        component: ProfileComponent
+        component: ProfileComponent, 
+        canActivate: [AuthGuardService]
     }
 ];
 
