@@ -41,4 +41,11 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call getFeatured', () =>{
+    // arrange
+    // act
+    // assert
+    expect(evyntServiceSpy.getFeatured).toHaveBeenCalled();
+  })
 });

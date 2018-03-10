@@ -11,9 +11,10 @@ import { environment } from '../../environments/environment';
     constructor(private afAuth: AngularFireAuth) { }
 
     login() {
-      this.afAuth.authState.subscribe( val => {
-        if (val == null) {
-          this.afAuth.app.auth().signInAnonymously().catch(function(error) {
+      this.afAuth.authState.subscribe( (user: User) => {
+        if (user == null || !tokenNotExpired()) {
+          this.afAuth.app.auth().signInAnonymously()
+          .catch(function(error) {
             // Handle Errors here.
             const errorCode = error.code;
             const errorMessage = error.message;
@@ -22,10 +23,7 @@ import { environment } from '../../environments/environment';
             // ...
           });
         } else {
-          const user = val as User;
-          user.getIdToken().then(token => {
-            localStorage.setItem('token', token);
-          });
+          this.setUser(user);
         }
       });
     }
@@ -37,5 +35,11 @@ import { environment } from '../../environments/environment';
 
     loggedIn() {
       return tokenNotExpired();
+    }
+
+    private setUser(user: User){
+      user.getIdToken().then(token => {
+        localStorage.setItem('token', token);
+      });
     }
 }

@@ -4,7 +4,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthService } from './auth.service';
 
 describe('AuthService', () => {
-  let authService: AuthService;
+  let authService;
   let angularFireAuth: jasmine.SpyObj<AngularFireAuth>;
 
   beforeEach(() => {
@@ -17,11 +17,14 @@ describe('AuthService', () => {
     });
 
     // Inject both the service-to-test and its (spy) dependency
-    authService = TestBed.get(AuthService);
     angularFireAuth = TestBed.get(AngularFireAuth);
+
+    inject([AuthService], (service: AuthService) => {
+      authService = service;
+    })();
   });
 
-  it('should be created', inject([AuthService], (service: AuthService) => {
-    expect(service).toBeTruthy();
-  }));
+  it('should be created',() => {
+    expect(authService).toBeTruthy();
+  });
 });
