@@ -21,14 +21,19 @@ import {HomeModule} from './components/home/home.module';
 
 // services
 import {JwtHelper} from 'angular2-jwt';
+import {AuthService} from './services/auth.service';
+import {AuthGuardService} from './services/auth-guard.service';
 import {EvyntService} from './services/evynt.service';
 
 @NgModule({
   declarations: [
-    AppComponent, NavComponent
+    NavComponent,
+    AppComponent, 
   ],
   imports: [
-    BrowserModule, HttpModule, AngularFireModule.initializeApp(environment.firebase),
+    BrowserModule, 
+    HttpModule, 
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AuthModule,
     AppRoutingModule,
@@ -37,7 +42,12 @@ import {EvyntService} from './services/evynt.service';
     HomeModule,
     NgbModule.forRoot()
   ],
-  providers: [JwtHelper, EvyntService],
+  providers: [
+    JwtHelper, 
+    AuthService,
+    AuthGuardService,
+    EvyntService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
