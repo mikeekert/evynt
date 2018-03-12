@@ -19,7 +19,6 @@ export class AuthGuardService implements CanActivate {
       firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
           // User is signed in.
-          
           user.getIdToken().then(token => {
             localStorage.setItem('token', token)
           ;});
