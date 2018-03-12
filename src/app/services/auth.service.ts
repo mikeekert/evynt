@@ -27,6 +27,7 @@ import { environment } from '../../environments/environment';
     }
 
     logout(): void {
+        this.afAuth.auth.signOut();
         // remove user from local storage to log user out
         localStorage.removeItem('token');
     }
