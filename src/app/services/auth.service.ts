@@ -7,21 +7,19 @@ import { environment } from '../../environments/environment';
 
 @Injectable()
   export class AuthService {
-
-    constructor(private afAuth: AngularFireAuth) { }
-
+    private user: User;
+    constructor(private afAuth: AngularFireAuth) {
+      
+     }
+    
     login() {
+      if(!tokenNotExpired()){
+        this.signInToFirebase();
+      }
+
       this.afAuth.authState.subscribe( (user: User) => {
-        if (user == null || !tokenNotExpired()) {
-          this.afAuth.app.auth().signInAnonymously()
-          .catch(function(error) {
-            // Handle Errors here.
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.error(errorCode);
-            console.error(errorMessage);
-            // ...
-          });
+        if (user == null) {
+          this.signInToFirebase();
         } else {
           this.setUser(user);
         }
@@ -36,7 +34,17 @@ import { environment } from '../../environments/environment';
     loggedIn() {
       return tokenNotExpired();
     }
-
+    private signInToFirebase(){
+      this.afAuth.app.auth().signInAnonymously()
+          .catch(function(error) {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error(errorCode);
+            console.error(errorMessage);
+            // ...
+          });
+    }
     private setUser(user: User){
       user.getIdToken().then(token => {
         localStorage.setItem('token', token);
