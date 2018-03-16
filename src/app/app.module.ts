@@ -24,15 +24,16 @@ import {JwtHelper} from 'angular2-jwt';
 import {AuthService} from './services/auth.service';
 import {AuthGuardService} from './services/auth-guard.service';
 import {EvyntService} from './services/evynt.service';
+import { FlyerModule } from './components/flyer/flyer.module';
 
 @NgModule({
   declarations: [
     NavComponent,
-    AppComponent, 
+    AppComponent,
   ],
   imports: [
-    BrowserModule, 
-    HttpModule, 
+    BrowserModule,
+    HttpModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AuthModule,
@@ -40,10 +41,11 @@ import {EvyntService} from './services/evynt.service';
     EvyntsModule,
     ProfileModule,
     HomeModule,
+    FlyerModule,
     NgbModule.forRoot()
   ],
   providers: [
-    JwtHelper, 
+    JwtHelper,
     AuthService,
     AuthGuardService,
     EvyntService,

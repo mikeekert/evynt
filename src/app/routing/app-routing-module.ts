@@ -10,15 +10,15 @@ import {HomeComponent} from '../components/home/home.component';
 const routes: Routes = [
     {
         path: '',
-        component: HomeComponent, 
+        component: HomeComponent,
         canActivate: [AuthGuardService]
     }, {
         path: 'evynts',
-        component: EvyntsComponent, 
+        component: EvyntsComponent,
         canActivate: [AuthGuardService]
     }, {
         path: 'evynt/:id',
-        component: ProfileComponent, 
+        component: ProfileComponent,
         canActivate: [AuthGuardService]
     }
 ];
