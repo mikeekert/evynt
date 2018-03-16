@@ -18,6 +18,7 @@ import {JwtHelper} from 'angular2-jwt';
 import {AuthService} from './services/auth.service';
 import {AuthGuardService} from './services/auth-guard.service';
 import {EvyntService} from './services/evynt.service';
+import { NavModule } from './components/nav/nav.module';
 
 @NgModule({
   declarations: [
