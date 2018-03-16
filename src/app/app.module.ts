@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {HttpModule} from '@angular/http';
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireAuthModule} from 'angularfire2/auth';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule, NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 import {environment} from '../environments/environment';
@@ -18,22 +18,22 @@ import {JwtHelper} from 'angular2-jwt';
 import {AuthService} from './services/auth.service';
 import {AuthGuardService} from './services/auth-guard.service';
 import {EvyntService} from './services/evynt.service';
-import { NavModule } from './components/nav/nav.module';
 
 @NgModule({
   declarations: [
-    AppComponent, 
+    AppComponent
   ],
   imports: [
-    HttpModule, 
+    HttpModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AuthModule,
     LayoutModule,
+    AppRoutingModule,
     NgbModule.forRoot()
   ],
   providers: [
-    JwtHelper, 
+    JwtHelper,
     AuthService,
     AuthGuardService,
     EvyntService,

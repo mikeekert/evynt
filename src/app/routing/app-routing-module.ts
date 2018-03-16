@@ -9,20 +9,21 @@ import {HomeComponent} from '../components/home/home.component';
 import { BasicLayoutComponent } from '../components/layout/basic-layout/basic-layout.component';
 
 const routes: Routes = [
+    { path: '**', redirectTo: '/welcome', pathMatch: 'full' },
     {
         path: '', component: BasicLayoutComponent,
         children: [
             {
-                path: '',
-                component: HomeComponent, 
+                path: 'welcome',
+                component: HomeComponent,
                 canActivate: [AuthGuardService]
             }, {
                 path: 'evynts',
-                component: EvyntsComponent, 
+                component: EvyntsComponent,
                 canActivate: [AuthGuardService]
             }, {
                 path: 'evynt/:id',
-                component: ProfileComponent, 
+                component: ProfileComponent,
                 canActivate: [AuthGuardService]
             }
         ]

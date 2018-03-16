@@ -5,11 +5,8 @@ import {Subject} from 'rxjs/Subject';
 import {ISubscription} from 'rxjs/Subscription';
 
 @Component({selector: 'app-home', templateUrl: './home.component.html', styleUrls: ['./home.component.scss']})
-export class HomeComponent implements OnInit,
-OnDestroy {
+export class HomeComponent implements OnInit {
   CarouselFeed: Carousel[] = [];
-
-  private subscription: ISubscription;
   constructor(private evyntService: EvyntService) {}
 
   ngOnInit() {
@@ -22,11 +19,5 @@ OnDestroy {
             .push(new Carousel(data[i]));
         }
       });
-  }
-
-  ngOnDestroy() {
-    this
-      .subscription
-      .unsubscribe();
   }
 }
