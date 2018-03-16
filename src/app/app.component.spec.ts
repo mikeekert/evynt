@@ -5,6 +5,7 @@ import {NavComponent} from './components/nav/nav.component';
 import {EvyntsModule} from './components/evynts/evynts.module';
 import {ProfileModule} from './components/profile/profile.module';
 import {HomeModule} from './components/home/home.module';
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 describe('AppComponent', () => {
@@ -15,7 +16,8 @@ describe('AppComponent', () => {
         NavComponent
       ],
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        NgbCollapseModule
       ]
     }).compileComponents();
   }));
