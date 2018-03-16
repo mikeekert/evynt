@@ -10,34 +10,34 @@ import {environment} from '../environments/environment';
 import {AuthModule} from './app-auth.module';
 
 import {AppComponent} from './app.component';
-import {NavComponent} from './components/nav/nav.component';
-
-import {FeedModule} from '../app/components/feed/feed.module';
 import {AppRoutingModule} from '../app/routing/app-routing-module';
-import {EvyntsModule} from './components/evynts/evynts.module';
-import {ProfileModule} from './components/profile/profile.module';
-import {HomeModule} from './components/home/home.module';
-
+import {LayoutModule} from './components/layout/layout.module';
 
 // services
 import {JwtHelper} from 'angular2-jwt';
+import {AuthService} from './services/auth.service';
+import {AuthGuardService} from './services/auth-guard.service';
 import {EvyntService} from './services/evynt.service';
+import { NavModule } from './components/nav/nav.module';
 
 @NgModule({
   declarations: [
-    AppComponent, NavComponent
+    AppComponent, 
   ],
   imports: [
-    BrowserModule, HttpModule, AngularFireModule.initializeApp(environment.firebase),
+    HttpModule, 
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AuthModule,
-    AppRoutingModule,
-    EvyntsModule,
-    ProfileModule,
-    HomeModule,
+    LayoutModule,
     NgbModule.forRoot()
   ],
-  providers: [JwtHelper, EvyntService],
+  providers: [
+    JwtHelper, 
+    AuthService,
+    AuthGuardService,
+    EvyntService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

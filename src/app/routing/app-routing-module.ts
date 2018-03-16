@@ -1,20 +1,31 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {AuthGuardService} from '../services/auth-guard.service';
+
 import {AppComponent} from '../app.component';
 import {EvyntsComponent} from '../components/evynts/evynts.component';
 import {ProfileComponent} from '../components/profile/profile.component';
 import {HomeComponent} from '../components/home/home.component';
+import { BasicLayoutComponent } from '../components/layout/basic-layout/basic-layout.component';
 
 const routes: Routes = [
     {
-        path: '',
-        component: HomeComponent
-    }, {
-        path: 'evynts',
-        component: EvyntsComponent
-    }, {
-        path: 'evynt/:id',
-        component: ProfileComponent
+        path: '', component: BasicLayoutComponent,
+        children: [
+            {
+                path: '',
+                component: HomeComponent, 
+                canActivate: [AuthGuardService]
+            }, {
+                path: 'evynts',
+                component: EvyntsComponent, 
+                canActivate: [AuthGuardService]
+            }, {
+                path: 'evynt/:id',
+                component: ProfileComponent, 
+                canActivate: [AuthGuardService]
+            }
+        ]
     }
 ];
 

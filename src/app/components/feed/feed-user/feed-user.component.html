@@ -1,4 +1,4 @@
-<div class="user-info d-flex flex-row justify-content-start">
+<div class="user-info d-flex flex-row justify-content-start" *ngIf="feed != null">
     <img src="{{ feed.item.userImageUrl }}">
     <i class="fa fa-user-circle-o" aria-hidden="true" *ngIf='!feed.item.userImageUrl'></i>
     <span class="my-auto user-name demo">{{ feed.item.postedBy }}</span>
