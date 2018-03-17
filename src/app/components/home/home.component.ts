@@ -13,11 +13,11 @@ export class HomeComponent implements OnInit {
     this.evyntService
       .getFeatured()
       .subscribe(data => {
-        for (let i = 0; i < data.length; i++) {
+        data.forEach((item) =>{
           this
             .CarouselFeed
-            .push(new Carousel(data[i]));
-        }
+            .push(new Carousel(item));
+          });
       });
   }
 }
