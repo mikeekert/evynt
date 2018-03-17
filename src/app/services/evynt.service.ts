@@ -10,15 +10,25 @@ import 'rxjs/add/operator/map';
 export class EvyntService {
 
   private apiUriBase: string;
-  private feedApiUrn: string;
 
   constructor(private http: AuthHttp) {
     this.apiUriBase = environment.citiskopeApi.baseUrl;
   }
 
   getFeatured() {
-    this.feedApiUrn = `api/Evynt?showFeaturedOnly=true`;
-    const apiUrl = `${this.apiUriBase}/${this.feedApiUrn}`;
+    let feedApiUrn = `api/Evynt?ShowFeaturedOnly=true`;
+    const apiUrl = `${this.apiUriBase}/${feedApiUrn}`;
+    return this
+      .http
+      .get(apiUrl, {
+        headers: new Headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+      })
+      .map(res => res.json().data);
+  }
+
+  get(pageSize: number,  page: number) {
+    let feedApiUrn = `api/Evynt?ShowFeaturedOnly=false&PageSize=${pageSize}&Page=${page}`;
+    const apiUrl = `${this.apiUriBase}/${feedApiUrn}`;
     return this
       .http
       .get(apiUrl, {

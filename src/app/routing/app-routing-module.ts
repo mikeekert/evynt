@@ -9,7 +9,7 @@ import {HomeComponent} from '../components/home/home.component';
 import { BasicLayoutComponent } from '../components/layout/basic-layout/basic-layout.component';
 
 const routes: Routes = [
-    { path: '**', redirectTo: '/welcome', pathMatch: 'full' },
+    { path: '', redirectTo: '/welcome', pathMatch: 'full' },
     {
         path: '', component: BasicLayoutComponent,
         children: [

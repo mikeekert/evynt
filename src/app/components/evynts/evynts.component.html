@@ -1,3 +1,4 @@
-<p>
-  evynts works!
-</p>
+<div *ngFor="let evynt of Evynts">
+  <!--TODO: send evynt into the flyer component-->
+  {{ evynt.Title }}<span *ngIf="evynt.Featured">featured</span>
+</div>
