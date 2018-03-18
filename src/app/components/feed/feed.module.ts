@@ -6,7 +6,7 @@ import {FeedUserComponent} from './feed-user/feed-user.component';
 import {FeedDescriptionComponent} from './feed-description/feed-description.component';
 import {FeedComponent} from './feed.component';
 import {RecentComponent} from './recent/recent.component';
-import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [

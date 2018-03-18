@@ -6,7 +6,7 @@ import { FeedComponent } from './feed.component';
 describe('FeedComponent', () => {
   let component: FeedComponent;
   let fixture: ComponentFixture<FeedComponent>;
-  let authHttpSpy: jasmine.SpyObj<AuthHttp>
+  let authHttpSpy: jasmine.SpyObj<AuthHttp>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
