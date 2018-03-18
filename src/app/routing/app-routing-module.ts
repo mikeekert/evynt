@@ -6,7 +6,7 @@ import {AppComponent} from '../app.component';
 import {EvyntsComponent} from '../components/evynts/evynts.component';
 import {ProfileComponent} from '../components/profile/profile.component';
 import {HomeComponent} from '../components/home/home.component';
-import { BasicLayoutComponent } from '../components/layout/basic-layout/basic-layout.component';
+import {BasicLayoutComponent} from '../components/layout/basic-layout/basic-layout.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/welcome', pathMatch: 'full' },
