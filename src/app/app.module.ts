@@ -36,7 +36,6 @@ import {EvyntService} from './services/evynt.service';
     JwtHelper,
     AuthService,
     AuthGuardService,
-    EvyntService,
   ],
   bootstrap: [AppComponent]
 })
