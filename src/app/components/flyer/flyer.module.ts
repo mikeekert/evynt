@@ -1,10 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-@NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: [],
-})
-export class FlyerModule { }
+@NgModule({imports: [CommonModule], declarations: []})
+export class FlyerModule {}

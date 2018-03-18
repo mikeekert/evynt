@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import {AuthHttp} from "angular2-jwt";
-import {environment} from "../../environments/environment";
-import {Headers} from "@angular/http";
+import {Injectable} from '@angular/core';
+import {AuthHttp} from 'angular2-jwt';
+import {environment} from '../../environments/environment';
+import {Headers} from '@angular/http';
 
 @Injectable()
 export class PostService {
@@ -12,8 +12,8 @@ export class PostService {
     this.apiUriBase = environment.citiskopeApi.baseUrl;
   }
 
-  get(pageSize: number,  page: number) {
-    let feedApiUrn = `api/Post/PageSize/${pageSize}/Page/${page}`;
+  get(pageSize: number, page: number) {
+    const feedApiUrn = `api/Post/PageSize/${pageSize}/Page/${page}`;
     const apiUrl = `${this.apiUriBase}/${feedApiUrn}`;
     return this
       .http

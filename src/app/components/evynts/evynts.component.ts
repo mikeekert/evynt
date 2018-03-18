@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Carousel} from "../home/carousel/carousel";
-import {EvyntService} from "../../services/evynt.service";
-import {Evynt} from "../../models/evynt";
+import {EvyntService} from '../../services/evynt.service';
+import {Evynt} from '../../models/evynt';
 
 @Component({
   selector: 'app-evynts',
@@ -15,19 +14,19 @@ export class EvyntsComponent implements OnInit {
   constructor(private evyntService: EvyntService) { }
 
   ngOnInit() {
-    this.getEvynts(this.pageSize, this.page)
+    this.getEvynts(this.pageSize, this.page);
   }
 
-  onScroll(){
+  onScroll() {
     this.page = ++this.page;
-    this.getEvynts(this.pageSize, this.page)
+    this.getEvynts(this.pageSize, this.page);
   }
 
-  private getEvynts(pageSize: number,  page: number){
+  private getEvynts(pageSize: number,  page: number) {
     this.evyntService
       .get(pageSize, page)
       .subscribe(data => {
-        data.forEach((item) =>{
+        data.forEach((item) => {
           this
             .Evynts
             .push(new Evynt(item));
