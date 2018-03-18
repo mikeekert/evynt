@@ -5,17 +5,28 @@ import {CarouselComponent} from './carousel/carousel.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {JwtHelper} from 'angular2-jwt';
-import {FlyerModule} from '../flyer/flyer.module';
-import {FlyerComponent} from '../flyer/flyer.component';
+import {FeedModule} from "../feed/feed.module";
+import {EvyntService} from "../../services/evynt.service";
+import {PostService} from "../../services/post.service";
 
 @NgModule({
   imports: [
-    CommonModule, NgbModule, FlyerModule
+    CommonModule,
+    NgbModule,
+    FeedModule
   ],
   declarations: [
-    HomeComponent, CarouselComponent, FlyerComponent
+    HomeComponent,
+    CarouselComponent
   ],
-  providers: [JwtHelper],
-  exports: [HomeComponent, CarouselComponent]
+  providers: [
+    JwtHelper,
+    EvyntService,
+    PostService
+  ],
+  exports: [
+    HomeComponent,
+    CarouselComponent
+  ]
 })
 export class HomeModule {}

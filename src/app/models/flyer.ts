@@ -14,4 +14,5 @@ export interface ApiEvyntResponse {
     'imageUrl': string;
     'description': string;
     'name': string;
+    'isFeatured' : boolean;
 }
