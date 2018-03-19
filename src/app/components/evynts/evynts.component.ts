@@ -5,7 +5,7 @@ import {Flyer} from '../../models/flyer';
 
 @Component({selector: 'app-evynts', templateUrl: './evynts.component.html', styleUrls: ['./evynts.component.scss']})
 export class EvyntsComponent implements OnInit {
-  Evynts: Evynt[] = [];
+  Flyers: Flyer[] = [];
   private pageSize = 10;
   private page = 1;
   constructor(private evyntService: EvyntService) {}
@@ -26,8 +26,8 @@ export class EvyntsComponent implements OnInit {
       .subscribe(data => {
         data.forEach((item) => {
           this
-            .Evynts
-            .push(new Evynt(item));
+            .Flyers
+            .push(new Flyer(item));
         });
       });
   }
