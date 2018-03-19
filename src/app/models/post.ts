@@ -16,7 +16,7 @@ export class Post {
 export interface ApiPostResponse {
   'imageUrl': string;
   'description': string;
-  "postedBy": string;
-  "postDts": number;
-  "userImageUrl": string;
+  'postedBy': string;
+  'postDts': number;
+  'userImageUrl': string;
 }

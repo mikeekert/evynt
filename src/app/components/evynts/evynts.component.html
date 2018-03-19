@@ -1,16 +1,6 @@
-
 <div infiniteScroll
      [infiniteScrollDistance]="2"
      [infiniteScrollThrottle]="50"
      (scrolled)="onScroll()">
-
-<div class="card" *ngFor="let evynt of Evynts">
-    <div class="card-body">
-
-      <!--TODO: send evynt into the flyer component-->
-      <h3>{{ evynt.Title }} <span *ngIf="evynt.Featured" class="badge badge-info">featured</span></h3>
-      <p class="card-text">{{ evynt.Description }}.</p>
-      <a href="#" class="card-link">More Info</a>
-    </div>
-  </div>
+  <app-flyer [Flyer]="flyer" class="flyer-container d-flex" *ngFor="let flyer of Flyers"></app-flyer>
 </div>

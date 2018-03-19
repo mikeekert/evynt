@@ -16,7 +16,7 @@ export class EvyntService {
   }
 
   getFeatured() {
-    let feedApiUrn = `api/Evynt?ShowFeaturedOnly=true`;
+    const feedApiUrn = `api/Evynt?ShowFeaturedOnly=true`;
     const apiUrl = `${this.apiUriBase}/${feedApiUrn}`;
     return this
       .http
@@ -27,7 +27,7 @@ export class EvyntService {
   }
 
   get(pageSize: number,  page: number) {
-    let feedApiUrn = `api/Evynt?ShowFeaturedOnly=false&PageSize=${pageSize}&Page=${page}`;
+    const feedApiUrn = `api/Evynt?ShowFeaturedOnly=false&PageSize=${pageSize}&Page=${page}`;
     const apiUrl = `${this.apiUriBase}/${feedApiUrn}`;
     return this
       .http
