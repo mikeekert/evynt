@@ -13,19 +13,25 @@ export class HomeComponent implements OnInit {
   constructor(private evyntService: EvyntService, private postService: PostService) {}
 
   ngOnInit() {
-    this.evyntService
+    this
+      .evyntService
       .getFeatured()
       .subscribe(data => {
         data.forEach(item => {
-          this.CarouselFeed.push(new Flyer(item));
-          });
+          this
+            .CarouselFeed
+            .push(new Flyer(item));
+        });
       });
 
-    this.postService
+    this
+      .postService
       .get(10, 1)
-      .subscribe( data => {
+      .subscribe(data => {
         data.forEach(item => {
-          this.Posts.push(new Post(item));
+          this
+            .Posts
+            .push(new Post(item));
         });
       });
   }
