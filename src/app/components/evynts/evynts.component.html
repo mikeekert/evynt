@@ -1,6 +1,6 @@
 <div infiniteScroll
-[infiniteScrollDistance]="2"
-[infiniteScrollThrottle]="50"
-(scrolled)="onScroll()">
-  <app-flyer class="flyer-container d-flex" *ngFor="let i of Flyers" [flyer]="i"></app-flyer>
+     [infiniteScrollDistance]="2"
+     [infiniteScrollThrottle]="50"
+     (scrolled)="onScroll()">
+  <app-flyer [Flyer]="flyer" class="flyer-container d-flex" *ngFor="let flyer of Flyers"></app-flyer>
 </div>

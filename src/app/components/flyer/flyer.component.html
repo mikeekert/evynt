@@ -1,12 +1,11 @@
 <div class="card flyer-card">
-    <img class="card-img-top flyer-card-img" src="{{ flyer.Imageurl }}" alt="Card image cap">
+    <img class="card-img-top flyer-card-img" src="{{ Flyer.Imageurl }}" alt="Card image cap">
     <div class="card-body">
       <!--TODO: send flyer into the flyer component-->
-      <h3>{{ flyer.Title }}
-        asda asdf
-        <span *ngIf="flyer.Featured" class="badge badge-info">featured</span>
+      <h3>{{ Flyer.Title }}
+        <span *ngIf="Flyer.IsFeatured" class="badge badge-info">featured</span>
       </h3>
-      <p class="card-text">{{ flyer.Description }}.</p>
+      <p class="card-text">{{ Flyer.Description }}.</p>
       <a href="#" class="card-link">More Info</a>
     </div>
-  </div>
+</div>
