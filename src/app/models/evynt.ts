@@ -1,4 +1,4 @@
-import {ApiEvyntResponse} from "../components/home/carousel/carousel";
+import {ApiEvyntResponse} from './flyer';
 
 export class Evynt {
   Imageurl: string;

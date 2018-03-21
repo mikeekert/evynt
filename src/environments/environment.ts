@@ -6,14 +6,14 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyBX0xBRAKTIeJnrURAjpDIBYMGbJLrGfKU",
-    authDomain: "citiskope-local.firebaseapp.com",
-    databaseURL: "https://citiskope-local.firebaseio.com",
-    projectId: "citiskope-local",
-    storageBucket: "citiskope-local.appspot.com",
-    messagingSenderId: "252141486095"
+    apiKey: 'AIzaSyBX0xBRAKTIeJnrURAjpDIBYMGbJLrGfKU',
+    authDomain: 'citiskope-local.firebaseapp.com',
+    databaseURL: 'https://citiskope-local.firebaseio.com',
+    projectId: 'citiskope-local',
+    storageBucket: 'citiskope-local.appspot.com',
+    messagingSenderId: '252141486095'
   },
   citiskopeApi: {
-    baseUrl: "http://localhost:8080"
+    baseUrl: 'http://localhost:8080'
   }
 };

@@ -1,0 +1,9 @@
+.flyer-card {
+    width: 500px;
+    margin: 20px;
+    .flyer-card-img {
+        height: 50%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
