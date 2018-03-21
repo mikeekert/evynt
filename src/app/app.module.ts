@@ -30,7 +30,8 @@ import {EvyntService} from './services/evynt.service';
     AuthModule,
     LayoutModule,
     AppRoutingModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    NgbDropdownModule
   ],
   providers: [
     JwtHelper,

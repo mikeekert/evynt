@@ -8,6 +8,8 @@ import {ProfileModule} from '../profile/profile.module';
 import {NavComponent} from '../nav/nav.component';
 import {AppRoutingModule} from '../../routing/app-routing-module';
 import {NgbCollapseModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
