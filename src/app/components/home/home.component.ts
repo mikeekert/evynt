@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
             .Posts
             .push(new Post(item));
         });
+        console.log(this.Posts);
       });
   }
 }

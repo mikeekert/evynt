@@ -1,11 +1,19 @@
-<app-carousel [CarouselFeed]="CarouselFeed"></app-carousel>
-<div class="mx-auto text-center">
-  <h1 class="display-4">Welcome</h1>
-  <p class="lead">Thank you for visiting us, here at Evynt we are dedicated to keeping you up to date with what's going on around you. <br/>
-    Its your weekend and you want to know where to go and what to do? Think of us as your dependable news source for what's happning tonight!</p>
+<div class="hero bg-texture">
+  <div id="main-page-wrapper">
+
+    <div class="container">
+      <div class="row d-md-flex brand">
+        <app-carousel [CarouselFeed]="CarouselFeed" *ngIf="CarouselFeed" class="col-md-6 hidden-sm-down"></app-carousel>
+        <div class="col-md-6 col-sm-12 text-white wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+          <h2 class="pt-4 text-center">Welcome</h2>
+          <p class="mt-5">
+            Thank you for visiting us, here at Evynt we are dedicated to keeping you up to date with what's going on around you.
+            <br/> Its your weekend and you want to know where to go and what to do? Think of us as your dependable news source
+            for what's happning tonight!</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="container">
-<div class="row">
-  <app-recent-posts [Posts]="Posts"></app-recent-posts>
-</div>
-</div>
+
+<app-recent-posts [Posts]="Posts"></app-recent-posts>

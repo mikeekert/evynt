@@ -1,3 +1,34 @@
+
+<section class="bg-faded" id="features">
+  <div class="container">
+      <div class="row mb-3">
+          <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 text-center wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+              <h2 class="text-primary">Amazing Features</h2>
+              <p class="lead mt-4">
+                  Comply with plenty of awesome features to <br>wow the viewers.
+              </p>
+          </div>
+      </div>
+      <div class="row mt-5 text-center" >
+          <div class="col-md-4 wow fadeIn" style="visibility: visible; animation-name: fadeIn;" *ngFor="let Post of Posts">
+              <div class="card">
+                  <div class="card-block">
+                      <div class="icon-box">
+                          <img style="height: 100%; width: 100%; object-fit: fill;" class="card-img" src="{{Post.Imageurl}}"
+                          alt="{{Post.Description}}" placement="bottom" ngbTooltip="{{Post.Description}}">                      </div>
+                      <h6 *ngIf="ShowDeatail">{{Post.Description}}</h6>
+                  </div> 
+              </div>
+          </div>
+
+          
+      </div>
+  </div>
+</section>
+
+
+<!-- 
+
 <div class="container-fluid mb-5">
   <div class="row col d-flex justify-content-center">
     <div class="card" style="height: 214px; width: 214px;" *ngFor="let Post of Posts">
@@ -8,4 +39,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
