@@ -1,14 +1,13 @@
 <div class="hero bg-texture">
   <div id="main-page-wrapper">
-
     <div class="container">
       <div class="row d-md-flex brand">
         <app-carousel [CarouselFeed]="CarouselFeed" *ngIf="CarouselFeed" class="col-md-6 hidden-sm-down"></app-carousel>
         <div class="col-md-6 col-sm-12 text-white wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
           <h2 class="pt-4 text-center">Welcome</h2>
           <p class="mt-5">
-            Thank you for visiting us, here at Evynt we are dedicated to keeping you up to date with what's going on around you.
-            <br/> Its your weekend and you want to know where to go and what to do? Think of us as your dependable news source
+            Thank you for visiting us, here at <span>Evynt</span> we are dedicated to keeping you up to date with what's going on around you.
+          </p> <p>Its your weekend and you want to know where to go and what to do? Think of us as your dependable news source
             for what's happning tonight!</p>
         </div>
       </div>
@@ -17,3 +16,48 @@
 </div>
 
 <app-recent-posts [Posts]="Posts"></app-recent-posts>
+
+<div class="row d-md-flex text-center wow fadeIn download" style="visibility: visible; animation-name: fadeIn;">
+  <div class="col-md-6 offset-md-3 col-sm-10 offset-sm-1 col-xs-12">
+      <h5 class="text-primary">Download Our Mobile App</h5>
+      <p class="mt-5">
+          <a href="#" class="mr-2"><img src="../../../assets/brand/apple.png" class="store-img"></a>
+          <a href="#"><img src="../../../assets/brand/google-play-badge.png" class="store-img"> </a>
+      </p>
+  </div>
+</div>
+
+<section class="bg-texture-collage p-0" id="contact">
+  <div class="container">
+      <div class="row d-md-flex text-white text-center wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+          <div class="col-sm-4 p-5">
+              <p><em class="ion-ios-telephone-outline icon-md"></em></p>
+              <p class="lead">612 123-1234</p>
+          </div>
+          <div class="col-sm-4 p-5">
+              <p><em class="ion-ios-email-outline icon-md"></em></p>
+              <p class="lead">info@evynt.com</p>
+          </div>
+          <div class="col-sm-4 p-5">
+              <p><em class="ion-ios-location-outline icon-md"></em></p>
+              <p class="lead">Minneapolis, Minnesota</p>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section class="bg-footer" id="connect">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 text-center wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+              <h1>EVYNT</h1>
+              <p class="mt-4">
+                  <a href="https://twitter.com/" target="_blank"><em class="ion-social-twitter text-twitter-alt icon-sm mr-3"></em></a>
+                  <a href="https://facebook.com/" target="_blank"><em class="ion-social-github text-facebook-alt icon-sm mr-3"></em></a>
+                  <a href="https://www.linkedin.com/" target="_blank"><em class="ion-social-linkedin text-linkedin-alt icon-sm mr-3"></em></a>
+                  <a href="https://plus.google.com/" target="_blank"><em class="ion-social-googleplus text-google-alt icon-sm mr-3"></em></a>
+              </p>
+          </div>
+      </div>
+  </div>
+</section>
