@@ -12,3 +12,18 @@ p {
 .download {
     margin: 50px auto;
 }
+
+.logos {
+    p {
+        font-size: 1.8vw;
+        flex-wrap: wrap;
+        flex-direction: row;
+        width: 35%;
+        margin: 0 auto;
+    
+    }
+    a {
+        flex:auto;
+    }
+
+}
