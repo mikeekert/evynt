@@ -8,6 +8,7 @@ import {ProfileModule} from '../profile/profile.module';
 import {NavComponent} from '../nav/nav.component';
 import {AppRoutingModule} from '../../routing/app-routing-module';
 import {NgbCollapseModule} from '@ng-bootstrap/ng-bootstrap';
+import {EvyntProfileModule} from '../evynt-profile/evynt-profile.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {NgbCollapseModule} from '@ng-bootstrap/ng-bootstrap';
     EvyntsModule,
     HomeModule,
     ProfileModule,
-    NgbCollapseModule
+    NgbCollapseModule,
+    EvyntProfileModule
   ]
 })
 export class LayoutModule {}

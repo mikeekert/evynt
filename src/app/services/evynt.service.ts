@@ -5,6 +5,7 @@ import {environment} from '../../environments/environment';
 
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { Subscription } from 'rxjs/Subscription';
 
 @Injectable()
 export class EvyntService {
@@ -36,4 +37,15 @@ export class EvyntService {
       })
       .map(res => res.json().data);
   }
+
+  getEvyntProfile(sceneIdentifier: Subscription) {
+    const feedApiUrn = `api/Evynt/sceneIdentifier/${sceneIdentifier}`;
+    const apiUrl = `${this.apiUriBase}/${feedApiUrn}`;
+    return this
+      .http
+      .get(apiUrl, {
+        headers: new Headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+      })
+      .map(res => res.json().data);
+    }
 }
