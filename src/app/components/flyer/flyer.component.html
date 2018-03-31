@@ -1,11 +1,20 @@
-<div class="card flyer-card">
-    <img class="card-img-top flyer-card-img" src="{{ Flyer.Imageurl }}" alt="Card image cap">
-    <div class="card-body">
-      <!--TODO: send flyer into the flyer component-->
-      <h3>{{ Flyer.Title }}
+<div class="container-fluid">
+  <img class=".img-fluid" src="{{ Flyer.Imageurl }}" alt="Card image cap" style="max-height: 500px; width: 100%">
+  <div class="row">
+    <div class="col-md-12" *ngIf="ShowMoreLink">
+      <h2>
+        <a [routerLink]="['/evynt/']" [queryParams]="{ 'identifier': Flyer.SceneIdentifier }">{{ Flyer.Title }}</a>
         <span *ngIf="Flyer.IsFeatured" class="badge badge-info">featured</span>
-      </h3>
-      <p class="card-text">{{ Flyer.Description }}.</p>
-      <a href="#" class="card-link">More Info</a>
+      </h2>
     </div>
+    <div class="col-md-12" *ngIf="!ShowMoreLink">
+      <h2>
+        {{ Flyer.Title }}
+        <span *ngIf="Flyer.IsFeatured" class="badge badge-info">featured</span>
+      </h2>
+    </div>
+    <div class="col-md-12">
+      <p>{{ Flyer.Description }}.</p>
+    </div>
+  </div>
 </div>
