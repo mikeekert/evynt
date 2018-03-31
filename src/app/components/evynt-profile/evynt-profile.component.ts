@@ -27,21 +27,14 @@ export class EvyntProfileComponent implements OnInit {
       .getEvyntProfile(this.evyntId)
       .subscribe(data => {
         const evyntResponse = new EvyntResponse();
-        evyntResponse.imageUrl = data.imageUrl;
-        evyntResponse.description = data.description;
-        evyntResponse.isFeatured = data.isFeatured;
-        evyntResponse.sceneIdentifier = data.sceneIdentifier;
-        evyntResponse.name = data.name;
-        this.Flyer = new Flyer(evyntResponse);
-      });
+        this.Flyer = new Flyer(data);
 
-    this.postService.getByEvynt(this.evyntId, 0,0).subscribe(data => {
-      data.forEach(dataItem => {
-        this
-          .Posts
-          .push(new Post(dataItem.item));
+        data.posts.forEach((post) => {
+          this
+            .Posts
+            .push(new Post(post));
+        })
       });
-    });
   }
 
 }
