@@ -24,6 +24,7 @@ export class PostService {
   }
 
   getByEvynt(identifier: string, pageSize: number, page: number) {
+    //TODO: in the future this should page.
     const feedApiUrn = `api/Post/ByEvynt/${identifier}`;
     const apiUrl = `${this.apiUriBase}/${feedApiUrn}`;
     return this
