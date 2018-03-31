@@ -22,4 +22,15 @@ export class PostService {
       })
       .map(res => res.json().data);
   }
+
+  getByEvynt(identifier: string, pageSize: number, page: number) {
+    const feedApiUrn = `api/Post/ByEvynt/${identifier}`;
+    const apiUrl = `${this.apiUriBase}/${feedApiUrn}`;
+    return this
+      .http
+      .get(apiUrl, {
+        headers: new Headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+      })
+      .map(res => res.json().data);
+  }
 }

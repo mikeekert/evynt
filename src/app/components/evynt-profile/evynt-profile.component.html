@@ -1,5 +1,4 @@
-<p>
-  evynt-profile works!
-  <app-flyer [Flyer]="flyer" [ShowMoreLink]="false" class="flyer-container d-flex" *ngIf="flyer"></app-flyer>
-
-</p>
+<app-flyer [Flyer]="Flyer" [ShowMoreLink]="false" class="flyer-container d-flex" *ngIf="Flyer"></app-flyer>
+<div class="row">
+  <app-recent-posts [Posts]="Posts"></app-recent-posts>
+</div>
