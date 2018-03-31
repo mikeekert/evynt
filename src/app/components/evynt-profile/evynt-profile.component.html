@@ -1,4 +1,8 @@
 <app-flyer [Flyer]="Flyer" [ShowMoreLink]="false" class="flyer-container d-flex" *ngIf="Flyer"></app-flyer>
-<div class="row">
-  <app-recent-posts [Posts]="Posts"></app-recent-posts>
+<div class="mx-auto text-center">
+  <h3>Recent Posts</h3>
 </div>
+<app-recent-posts [Posts]="Posts" class="card-deck justify-content-center"></app-recent-posts>
+
+
+
