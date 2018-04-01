@@ -28,16 +28,6 @@ export class EvyntProfileComponent implements OnInit {
       .subscribe(data => {
         this.Flyer = new Flyer(data);
 
-        this.meta.updateTag({
-          property: 'og:title', content: this.Flyer.Title
-        });
-        this.meta.updateTag({
-          property: 'og:description', content: this.Flyer.Description
-        });
-        this.meta.updateTag({
-          property: 'og:image', content: this.Flyer.Imageurl
-        });
-
         data.posts.forEach((post) => {
           this
             .Posts
