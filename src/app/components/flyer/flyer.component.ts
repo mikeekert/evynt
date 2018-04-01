@@ -9,7 +9,7 @@ export class FlyerComponent implements OnInit {
   Flyer: Flyer;
 
   @Input()
-  ShowMoreLink: boolean;
+  ShowProfileLink: boolean;
 
   constructor() {}
 

@@ -26,7 +26,6 @@ export class EvyntProfileComponent implements OnInit {
       .evyntService
       .getEvyntProfile(this.evyntId)
       .subscribe(data => {
-        const evyntResponse = new EvyntResponse();
         this.Flyer = new Flyer(data);
 
         data.posts.forEach((post) => {
