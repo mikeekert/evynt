@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {EvyntService} from '../../services/evynt.service';
 import {ActivatedRoute} from '@angular/router';
-import { Flyer, EvyntResponse } from '../../models/flyer';
+import { Flyer } from '../../models/flyer';
 import {Post} from "../../models/post";
 import {PostService} from "../../services/post.service";
 
