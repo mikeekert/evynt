@@ -1,20 +1,32 @@
 <div class="container-fluid">
-  <img class=".img-fluid" src="{{ Flyer.Imageurl }}" alt="Card image cap" style="max-height: 500px; width: 100%">
+  <img class="flyer-image" src="{{ Flyer.Imageurl }}" alt="Card image cap">
   <div class="row">
-    <div class="col-md-12" *ngIf="ShowMoreLink">
-      <h2>
-        <a [routerLink]="['/evynt/']" [queryParams]="{ 'identifier': Flyer.SceneIdentifier }">{{ Flyer.Title }}</a>
-        <span *ngIf="Flyer.IsFeatured" class="badge badge-info">featured</span>
-      </h2>
+    <div class="col-md-10">
+      <div class="col-md-12" *ngIf="ShowProfileLink">
+        <h1>
+          <a [routerLink]="['/evynt/']" [queryParams]="{ 'identifier': Flyer.SceneIdentifier }">{{ Flyer.Title }}</a>
+          <span *ngIf="Flyer.IsFeatured" class="badge badge-info">featured</span>
+        </h1>
+      </div>
+      <div class="col-md-12" *ngIf="!ShowProfileLink">
+        <h1>
+          {{ Flyer.Title }}
+          <span *ngIf="Flyer.IsFeatured" class="badge badge-info">featured</span>
+        </h1>
+      </div>
+      <div class="col-md-12">
+        <p *ngIf="Flyer.StartTime"><b>When:</b> {{ Flyer.StartTime | amLocal | amDateFormat: 'h:mm A, LL' }}</p>
+        <p *ngIf="Flyer.FormattedAddress"><b>Where:</b> {{ Flyer.FormattedAddress }}</p>
+        <p>{{ Flyer.Description }}.</p>
+      </div>
     </div>
-    <div class="col-md-12" *ngIf="!ShowMoreLink">
-      <h1>
-        {{ Flyer.Title }}
-        <span *ngIf="Flyer.IsFeatured" class="badge badge-info">featured</span>
-      </h1>
-    </div>
-    <div class="col-md-12">
-      <p>{{ Flyer.Description }}.</p>
+    <div class="col-md-2 text-center">
+      <div class="container d-flex h-100">
+        <div class="row">
+          <img data-toggle="tooltip" title="Hosted By: {{ Flyer.Postedby}}" src="{{ Flyer.UserImageUrl}}"
+               class="rounded-circle host-img" alt="Hosted By: {{ Flyer.Postedby}}">
+        </div>
+      </div>
     </div>
   </div>
 </div>

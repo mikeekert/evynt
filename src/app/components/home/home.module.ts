@@ -8,12 +8,14 @@ import {JwtHelper} from 'angular2-jwt';
 import {FeedModule} from '../feed/feed.module';
 import {EvyntService} from '../../services/evynt.service';
 import {PostService} from '../../services/post.service';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   imports: [
     CommonModule,
     NgbModule,
-    FeedModule
+    FeedModule,
+    RouterModule
   ],
   declarations: [
     HomeComponent,

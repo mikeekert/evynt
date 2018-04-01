@@ -5,7 +5,7 @@
         <div class="carousel-container" [ngStyle]="{'background-image': 'url(' + i.Imageurl + ')'}">
         </div>
         <div class="carousel-caption">
-          <h3>{{i.Title}}</h3>
+          <h3><a [routerLink]="['/evynt/']" [queryParams]="{ 'identifier': i.SceneIdentifier }">{{i.Title}}</a></h3>
           <p>{{i.Description}}</p>
         </div>
       </ng-template>
