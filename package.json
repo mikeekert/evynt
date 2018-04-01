@@ -6,8 +6,8 @@
     "ng": "ng",
     "start": "ng serve -env=dev",
     "build": "ng build --prod",
-    "build-dev": "ng build --dev",
-    "build-uat": "ng build --uat",
+    "build-dev": "ng build --dev --e=dev",
+    "build-uat": "ng build --prod --e=uat",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
