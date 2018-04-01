@@ -1,7 +1,3 @@
-
-<meta property="og:title"              content="{{Flyer.Title}}" *ngIf="Flyer" />
-<meta property="og:description"        content="{{Flyer.Description}}" *ngIf="Flyer" />
-<meta property="og:image"              content="{{Flyer.Imageurl}}" *ngIf="Flyer" />
 <app-flyer [Flyer]="Flyer" [ShowProfileLink]="false" class="flyer-container d-flex jumbotron jumbotron-fluid" *ngIf="Flyer"></app-flyer>
 <app-recent-posts [Posts]="Posts" class="card-deck justify-content-center"></app-recent-posts>
 
