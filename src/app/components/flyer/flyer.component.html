@@ -15,7 +15,7 @@
         </h1>
       </div>
       <div class="col-md-12">
-        <p *ngIf="Flyer.StartTime"><b>When:</b> {{ Flyer.StartTime.concat('z') | amUtc | amLocal | amDateFormat: 'h:mm A on LL' }}</p>
+        <p *ngIf="Flyer.StartTime"><b>When:</b> {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat: 'h:mm A on LL' }}</p>
         <p *ngIf="Flyer.FormattedAddress"><b>Where:</b> {{ Flyer.FormattedAddress }}</p>
         <p>{{ Flyer.Description }}.</p>
       </div>
