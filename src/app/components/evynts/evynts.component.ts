@@ -8,7 +8,9 @@ export class EvyntsComponent implements OnInit {
   Flyers: Flyer[] = [];
   private pageSize = 10;
   private page = 1;
-  constructor(private evyntService: EvyntService) {}
+
+  constructor(private evyntService: EvyntService) {
+  }
 
   ngOnInit() {
     this.getEvynts(this.pageSize, this.page);
@@ -20,19 +22,21 @@ export class EvyntsComponent implements OnInit {
   }
 
   private getEvynts(pageSize: number, page: number) {
-    if (navigator.geolocation){
-      navigator.geolocation.getCurrentPosition((position)  => {
-        this
-          .evyntService
-          .get(pageSize, page, position.coords.latitude, position.coords.longitude)
-          .subscribe(data => {
-            data.forEach((item) => {
-              this
-                .Flyers
-                .push(new Flyer(item));
-            });
-          });
-      });
+    let latitude = localStorage.getItem("latitude");
+    let longitude = localStorage.getItem("longitude");
+
+    if (navigator.geolocation) {
+
+      if (latitude == null && longitude == null) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          localStorage.setItem('latitude', position.coords.latitude.toString());
+          localStorage.setItem('longitude', position.coords.longitude.toString());
+          this.getEvyntWithLocation(pageSize, page, position.coords.latitude, position.coords.longitude);
+        });
+      }
+      else {
+        this.getEvyntWithLocation(pageSize, page, Number(latitude), Number(longitude));
+      }
     }
     else {
       this
@@ -46,6 +50,19 @@ export class EvyntsComponent implements OnInit {
           });
         });
     }
+  }
+
+  private getEvyntWithLocation(pageSize: number, page: number, latitude: number, longitude: number) {
+
+    this.evyntService
+      .get(pageSize, page, latitude, longitude)
+      .subscribe(data => {
+        data.forEach((item) => {
+          this
+            .Flyers
+            .push(new Flyer(item));
+        });
+      });
   }
 
 }
