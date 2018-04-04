@@ -15,7 +15,7 @@
         </h1>
       </div>
       <div class="col-md-12">
-        <p *ngIf="Flyer.StartTime"><b>When:</b> {{ Flyer.StartTime.concat('z') | amUtc | amLocal | amDateFormat: 'h:mm A on LL' }}</p>
+        <p *ngIf="Flyer.StartTime"><b>When:</b> {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat: 'h:mm A on LL' }}</p>
         <p *ngIf="Flyer.FormattedAddress"><b>Where:</b> {{ Flyer.FormattedAddress }}</p>
         <p>{{ Flyer.Description }}.</p>
       </div>
@@ -23,8 +23,7 @@
     <div class="col-md-2 text-center">
       <div class="container d-flex h-100" *ngIf="Flyer.UserImageUrl">
         <div class="row">
-          <img data-toggle="tooltip" title="Hosted By: {{ Flyer.Postedby}}" src="{{ Flyer.UserImageUrl}}"
-               class="rounded-circle host-img" alt="Hosted By: {{ Flyer.Postedby}}">
+          <img data-toggle="tooltip" title="Hosted By: {{ Flyer.Postedby}}" src="{{ Flyer.UserImageUrl}}" class="rounded-circle host-img" alt="Hosted By: {{ Flyer.Postedby}}">
         </div>
       </div>
     </div>
