@@ -1,7 +1,7 @@
-<app-carousel [CarouselFeed]="CarouselFeed"></app-carousel>
+<app-carousel [CarouselFeed]="CarouselFeed" *ngIf="CarouselFeed.length > 0"></app-carousel>
 <div class="mx-auto text-center">
   <h1 class="display-4">Evynt - For Every Occasion</h1>
   <p class="lead">Thank you for visiting us, here at Evynt we are dedicated to keeping you up to date with what's going on around you. <br/>
     Life is your occasion, think of us as your dependable news source for what's happening!</p>
 </div>
-  <app-recent-posts [Posts]="Posts" class="card-deck justify-content-center"></app-recent-posts>
+<app-recent-posts [Posts]="Posts" class="card-deck justify-content-center"></app-recent-posts>

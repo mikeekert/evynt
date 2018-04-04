@@ -27,8 +27,13 @@ export class EvyntService {
       .map(res => res.json().data);
   }
 
-  get(pageSize: number,  page: number) {
-    const feedApiUrn = `api/Evynt?ShowFeaturedOnly=false&PageSize=${pageSize}&Page=${page}`;
+  get(pageSize: number,  page: number, latitude: number = null,  longitude: number = null) {
+    let feedApiUrn = `api/Evynt?ShowFeaturedOnly=false&PageSize=${pageSize}&Page=${page}`;
+
+    if (latitude && longitude){
+      feedApiUrn += `&Latitude=${latitude}&Longitude=${longitude}`;
+    }
+
     const apiUrl = `${this.apiUriBase}/${feedApiUrn}`;
     return this
       .http

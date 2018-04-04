@@ -20,16 +20,32 @@ export class EvyntsComponent implements OnInit {
   }
 
   private getEvynts(pageSize: number, page: number) {
-    this
-      .evyntService
-      .get(pageSize, page)
-      .subscribe(data => {
-        data.forEach((item) => {
-          this
-            .Flyers
-            .push(new Flyer(item));
-        });
+    if (navigator.geolocation){
+      navigator.geolocation.getCurrentPosition((position)  => {
+        this
+          .evyntService
+          .get(pageSize, page, position.coords.latitude, position.coords.longitude)
+          .subscribe(data => {
+            data.forEach((item) => {
+              this
+                .Flyers
+                .push(new Flyer(item));
+            });
+          });
       });
+    }
+    else {
+      this
+        .evyntService
+        .get(pageSize, page)
+        .subscribe(data => {
+          data.forEach((item) => {
+            this
+              .Flyers
+              .push(new Flyer(item));
+          });
+        });
+    }
   }
 
 }
