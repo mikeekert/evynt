@@ -1,31 +1,35 @@
-<div class="container-fluid">
-  <img class="flyer-image" src="{{ Flyer.Imageurl }}" alt="Card image cap">
-  <div class="row">
-    <div class="col-md-10">
-      <div class="col-md-12" *ngIf="ShowProfileLink">
-        <h1>
+<div class="row featurette">
+  <div class="col-md-7">
+    <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="{{ Flyer.Imageurl }}" data-holder-rendered="true" >
+  </div>
+  <div class="col-md-5">
+    <div class="row">
+      <div class="col-md-10">
+        <h3 class="featurette-heading" *ngIf="ShowProfileLink">
           <a [routerLink]="['/evynt/']" [queryParams]="{ 'identifier': Flyer.SceneIdentifier }">{{ Flyer.Title }}</a>
           <span *ngIf="Flyer.IsFeatured" class="badge badge-info">featured</span>
-        </h1>
-      </div>
-      <div class="col-md-12" *ngIf="!ShowProfileLink">
-        <h1>
+        </h3>
+        <h2 class="featurette-heading" *ngIf="!ShowProfileLink">
           {{ Flyer.Title }}
           <span *ngIf="Flyer.IsFeatured" class="badge badge-info">featured</span>
-        </h1>
+        </h2>
       </div>
-      <div class="col-md-12">
-        <p *ngIf="Flyer.StartTime"><b>When:</b> {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat: 'h:mm A on LL' }}</p>
-        <p *ngIf="Flyer.FormattedAddress"><b>Where:</b> {{ Flyer.FormattedAddress }}</p>
-        <p>{{ Flyer.Description }}.</p>
-      </div>
-    </div>
-    <div class="col-md-2 text-center">
-      <div class="container d-flex h-100" *ngIf="Flyer.UserImageUrl">
-        <div class="row">
-          <img data-toggle="tooltip" title="Hosted By: {{ Flyer.Postedby}}" src="{{ Flyer.UserImageUrl}}" class="rounded-circle host-img" alt="Hosted By: {{ Flyer.Postedby}}">
+      <div class="col-md-4 text-center">
+        <div class="container d-flex h-100" *ngIf="Flyer.UserImageUrl">
+          <div class="row">
+            <img data-toggle="tooltip" title="Hosted By: {{ Flyer.Postedby}}" src="{{ Flyer.UserImageUrl}}" class="rounded-circle host-img" alt="Hosted By: {{ Flyer.Postedby}}">
+          </div>
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p *ngIf="Flyer.StartTime"><b>When:</b> {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat: 'h:mm A on LL' }}</p>
+        <p *ngIf="Flyer.FormattedAddress"><b>Where:</b> {{ Flyer.FormattedAddress }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <p class="lead">{{ Flyer.Description }}</p>
   </div>
 </div>
