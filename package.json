@@ -4,8 +4,8 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -env=dev",
-    "start-uat": "ng serve -env=uat",
+    "start": "ng serve --e=dev",
+    "start-uat": "ng serve --e=uat",
     "build": "ng build --prod",
     "build-dev": "ng build --dev --e=dev",
     "build-uat": "ng build --prod --e=uat",
