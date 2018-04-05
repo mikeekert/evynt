@@ -39,11 +39,8 @@ export class EvyntsComponent implements OnInit {
       }
     }
     else {
-      this
-        .evyntService
-        .get(pageSize, page)
-        .subscribe(data => {
-          data.forEach((item) => {
+      this.evyntService.get(pageSize, page).subscribe(response => {
+        response.data.forEach((item) => {
             this
               .Flyers
               .push(new Flyer(item));
@@ -53,11 +50,8 @@ export class EvyntsComponent implements OnInit {
   }
 
   private getEvyntWithLocation(pageSize: number, page: number, latitude: number, longitude: number) {
-
-    this.evyntService
-      .get(pageSize, page, latitude, longitude)
-      .subscribe(data => {
-        data.forEach((item) => {
+    this.evyntService.get(pageSize, page, latitude, longitude).subscribe(response => {
+      response.data.forEach((item) => {
           this
             .Flyers
             .push(new Flyer(item));

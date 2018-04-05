@@ -10,5 +10,8 @@ export const environment = {
   },
   citiskopeApi: {
     baseUrl: 'https://uat-api.citiskope.com'
+  },
+  angularJwt :{
+    whitelistedDomains : ['uat-api.citiskope.com']
   }
 };

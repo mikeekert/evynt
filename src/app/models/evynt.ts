@@ -1,4 +1,4 @@
-import {ApiEvyntResponse} from './flyer';
+import {ApiEvyntResponse} from './apiEvyntResponse';
 
 export class Evynt {
   Imageurl: string;
