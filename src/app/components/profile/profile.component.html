@@ -1,3 +1,5 @@
 <p>
-  profile works! your id is: {{ id }}
+  <img class="rounded-circle" src="{{UserImageUrl}}" alt="{{ UserName }}" width="140" height="140">
 </p>
+<app-flyer [Flyer]="flyer" [ShowProfileLink]="true" class="flyer-container d-flex jumbotron" *ngFor="let flyer of Flyers"></app-flyer>
+

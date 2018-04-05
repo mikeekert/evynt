@@ -17,7 +17,9 @@
       <div class="col-md-4 text-center">
         <div class="container d-flex h-100" *ngIf="Flyer.UserImageUrl">
           <div class="row">
-            <img data-toggle="tooltip" title="Hosted By: {{ Flyer.Postedby}}" src="{{ Flyer.UserImageUrl}}" class="rounded-circle host-img" alt="Hosted By: {{ Flyer.Postedby}}">
+            <a [routerLink]="['/profile/']" [queryParams]="{ 'id': Flyer.UserId }">
+              <img data-toggle="tooltip" title="Hosted By: {{ Flyer.Postedby}}" src="{{ Flyer.UserImageUrl}}" class="rounded-circle host-img" alt="Hosted By: {{ Flyer.Postedby}}">
+            </a>
           </div>
         </div>
       </div>
