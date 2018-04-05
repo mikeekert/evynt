@@ -15,5 +15,8 @@ export const environment = {
   },
   citiskopeApi: {
     baseUrl: 'http://localhost:8080'
+  },
+  angularJwt :{
+    whitelistedDomains : ['localhost:8080']
   }
 };

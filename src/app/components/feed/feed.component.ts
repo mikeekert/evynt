@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Http, Headers} from '@angular/http';
-import {AuthHttp} from 'angular2-jwt';
 import {environment} from '../../../environments/environment';
 
 import {Observable} from 'rxjs/Observable';
@@ -8,6 +7,9 @@ import 'rxjs/add/operator/map';
 
 import {FeedItem} from './feed-item';
 import {Location} from './location';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {ApiEvyntResponse} from "../../models/apiEvyntResponse";
+import {ApiPostResponse} from "../../models/post";
 
 @Component({selector: 'app-feed', templateUrl: './feed.component.html', styleUrls: ['./feed.component.scss']})
 export class FeedComponent implements OnInit {
@@ -17,7 +19,7 @@ export class FeedComponent implements OnInit {
   private apiUriBase: string;
   private feedApiUrn: string;
 
-  constructor(private http: AuthHttp) {
+  constructor(private http: HttpClient) {
     this.apiUriBase = environment.citiskopeApi.baseUrl;
   }
 
@@ -30,7 +32,7 @@ export class FeedComponent implements OnInit {
         this
           .getFeed(this.location.coords.longitude, this.location.coords.latitude)
           .subscribe(data => {
-            this.feed = data;
+            //this.feed = data;
             console.log(this.feed);
             console.log(position);
           });
@@ -54,9 +56,8 @@ export class FeedComponent implements OnInit {
     const apiUrl = `${this.apiUriBase}/${this.feedApiUrn}`;
     return this
       .http
-      .get(apiUrl, {
-        headers: new Headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
-      })
-      .map(res => res.json().data);
+      .get<[ApiPostResponse]>(apiUrl, {
+      headers: new HttpHeaders().set('Accept', 'application/json').set('Content-Type', 'application/json')
+      });
   }
 }
