@@ -2,16 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProfileComponent } from './profile.component';
 import {FlyerModule} from "../flyer/flyer.module";
-import {UserService} from "../../services/user.service";
+import {EvyntService} from "../../services/evynt.service";
+import {InfiniteScrollModule} from "ngx-infinite-scroll";
 
 @NgModule({
   imports: [
     CommonModule,
-    FlyerModule
+    FlyerModule,
+    InfiniteScrollModule
   ],
   declarations: [ProfileComponent],
   providers: [
-    UserService
+    EvyntService
     ]
 })
 export class ProfileModule { }
