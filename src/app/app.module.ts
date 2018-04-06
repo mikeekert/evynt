@@ -16,6 +16,9 @@ import {LayoutModule} from './components/layout/layout.module';
 // services
 import {AuthService} from './services/auth.service';
 import {AuthGuardService} from './services/auth-guard.service';
+export function tokenGetter() {
+  return localStorage.getItem('token');
+}
 
 @NgModule({
   declarations: [
@@ -25,9 +28,7 @@ import {AuthGuardService} from './services/auth-guard.service';
     HttpClientModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter: () => {
-          return localStorage.getItem('token');
-        },
+        tokenGetter: tokenGetter,
         whitelistedDomains: environment.angularJwt.whitelistedDomains,
         blacklistedRoutes: []
       }
