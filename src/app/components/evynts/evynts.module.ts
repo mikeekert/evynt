@@ -7,7 +7,9 @@ import { FlyerModule } from '../flyer/flyer.module';
 
 @NgModule({
   imports: [
-    CommonModule, InfiniteScrollModule, FlyerModule
+    CommonModule,
+    InfiniteScrollModule,
+    FlyerModule
   ],
   providers: [EvyntService],
   declarations: [EvyntsComponent]
