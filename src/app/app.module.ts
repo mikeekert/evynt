@@ -1,7 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HttpClientModule} from "@angular/common/http";
-import {HttpModule} from '@angular/http';
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {NgbModule, NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
@@ -16,8 +15,9 @@ import {LayoutModule} from './components/layout/layout.module';
 // services
 import {AuthService} from './services/auth.service';
 import {AuthGuardService} from './services/auth-guard.service';
-export function tokenGetter() {
-  return localStorage.getItem('token');
+
+export function tokenGetter(){
+    return localStorage.getItem('token');
 }
 
 @NgModule({

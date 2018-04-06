@@ -6,7 +6,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Subscription } from 'rxjs/Subscription';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {ApiEvyntResponse} from "../models/apiEvyntResponse";
+import {ApiEvyntResponse, ApiUserResponse} from "../models/apiEvyntResponse";
 import {ApiResponse} from "../models/post";
 
 @Injectable()
@@ -52,4 +52,14 @@ export class EvyntService {
         headers: new HttpHeaders().set('Accept', 'application/json').set('Content-Type', 'application/json')
       });
     }
+
+  getByUser(userId: string, pageSize: number,  page: number,){
+    const feedApiUrn = `api/Evynt/${userId}/PageSize/${pageSize}/Page/${page}`;
+    const apiUrl = `${this.apiUriBase}/${feedApiUrn}`;
+    return this
+      .http
+      .get<ApiResponse<[ApiEvyntResponse]>>(apiUrl, {
+        headers: new HttpHeaders().set('Accept', 'application/json').set('Content-Type', 'application/json')
+      });
+  }
 }

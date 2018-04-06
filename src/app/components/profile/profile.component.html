@@ -1,5 +1,9 @@
 <p>
   <img class="rounded-circle" src="{{UserImageUrl}}" alt="{{ UserName }}" width="140" height="140">
 </p>
-<app-flyer [Flyer]="flyer" [ShowProfileLink]="true" class="flyer-container d-flex jumbotron" *ngFor="let flyer of Flyers"></app-flyer>
-
+<div infiniteScroll
+     [infiniteScrollDistance]="2"
+     [infiniteScrollThrottle]="50"
+     (scrolled)="onScroll()">
+  <app-flyer [Flyer]="flyer" [ShowProfileLink]="true" class="flyer-container d-flex jumbotron" *ngFor="let flyer of Flyers"></app-flyer>
+</div>
