@@ -1,30 +1,56 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {EvyntService} from '../../services/evynt.service';
-import {Evynt} from '../../models/evynt';
 import {Flyer} from '../../models/flyer';
 
 @Component({selector: 'app-evynts', templateUrl: './evynts.component.html', styleUrls: ['./evynts.component.scss']})
 export class EvyntsComponent implements OnInit {
   Flyers: Flyer[] = [];
-  private pageSize = 10;
+  private pageSize = 5;
   private page = 1;
-  constructor(private evyntService: EvyntService) {}
+
+  constructor(private evyntService: EvyntService) {
+  }
 
   ngOnInit() {
-    this.getEvynts(this.pageSize, this.page);
+    this.getEvynts();
   }
 
   onScroll() {
     this.page = ++this.page;
-    this.getEvynts(this.pageSize, this.page);
+    this.getEvynts();
   }
 
-  private getEvynts(pageSize: number, page: number) {
-    this
-      .evyntService
-      .get(pageSize, page)
-      .subscribe(data => {
-        data.forEach((item) => {
+  private getEvynts() {
+    let latitude = localStorage.getItem("latitude");
+    let longitude = localStorage.getItem("longitude");
+
+    if (navigator.geolocation) {
+
+      if (latitude == null && longitude == null) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          localStorage.setItem('latitude', position.coords.latitude.toString());
+          localStorage.setItem('longitude', position.coords.longitude.toString());
+          this.getEvyntWithLocation(position.coords.latitude, position.coords.longitude);
+        });
+      }
+      else {
+        this.getEvyntWithLocation(Number(latitude), Number(longitude));
+      }
+    }
+    else {
+      this.evyntService.get(this.pageSize, this.page).subscribe(response => {
+        response.data.forEach((item) => {
+            this
+              .Flyers
+              .push(new Flyer(item));
+          });
+        });
+    }
+  }
+
+  private getEvyntWithLocation(latitude: number, longitude: number) {
+    this.evyntService.get(this.pageSize, this.page, latitude, longitude).subscribe(response => {
+      response.data.forEach((item) => {
           this
             .Flyers
             .push(new Flyer(item));

@@ -20,3 +20,14 @@ export interface ApiPostResponse {
   'postDts': number;
   'userImageUrl': string;
 }
+
+
+export interface ApiPagedResponse<TResponse>{
+  'data' : TResponse,
+  'total' : number,
+  'page' : number
+}
+
+export interface ApiResponse<TResponse>{
+  'data' : TResponse
+}

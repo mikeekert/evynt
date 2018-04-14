@@ -1,16 +1,16 @@
 import {Injectable} from '@angular/core';
-import {tokenNotExpired} from 'angular2-jwt';
 import {AngularFireAuth} from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import {User} from 'firebase/app';
 import {environment} from '../../environments/environment';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable()
 export class AuthService {
   private user: User;
-  constructor(private afAuth: AngularFireAuth) {}
+  constructor(private jwtHelper: JwtHelperService, private afAuth: AngularFireAuth) {}
   login() {
-    if (!tokenNotExpired()) {
+    if (this.jwtHelper.isTokenExpired()) {
       this.signInToFirebase();
     }
 
@@ -32,11 +32,11 @@ export class AuthService {
       .auth
       .signOut();
     // remove user from local storage to log user out
-    localStorage.removeItem('token');
+    localStorage.clear();
   }
 
   loggedIn() {
-    return tokenNotExpired();
+    return !this.jwtHelper.isTokenExpired();
   }
   private signInToFirebase() {
     this
