@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <div class="card flyer-card">
   <img class="card-img-top flyer-card-img" src="{{ Flyer.Imageurl }}" alt="Card image cap">
   <div class="card-body">
@@ -7,5 +8,50 @@
     </h3>
     <p class="card-text">{{ Flyer.Description }}.</p>
     <a [routerLink]="['/evynt/']" [queryParams]="{ 'identifier': Flyer.SceneIdentifier }" class="card-link" *ngIf="ShowMoreLink">More Info</a>
+=======
+<div class="row featurette">
+  <div class="col-md-7">
+    <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="{{ Flyer.Imageurl }}"
+      data-holder-rendered="true">
+  </div>
+  <div class="col-md-5">
+    <div class="row">
+      <div class="col-md-10">
+        <h3 class="featurette-heading" *ngIf="ShowProfileLink">
+          <a [routerLink]="['/evynt/']" [queryParams]="{ 'identifier': Flyer.SceneIdentifier }">{{ Flyer.Title }}</a>
+          <span *ngIf="Flyer.IsFeatured" class="badge badge-info">featured</span>
+        </h3>
+        <h2 class="featurette-heading" *ngIf="!ShowProfileLink">
+          {{ Flyer.Title }}
+          <span *ngIf="Flyer.IsFeatured" class="badge badge-info">featured</span>
+        </h2>
+      </div>
+      <div class="col-md-4 text-center">
+        <!-- <div class="container d-flex h-100" *ngIf="Flyer.UserImageUrl">
+          <div class="row">
+            <a [routerLink]="['/profile/']" [queryParams]="{ 'id': Flyer.UserId }">
+              <img data-toggle="tooltip" title="Hosted By: {{ Flyer.Postedby}}" src="{{ Flyer.UserImageUrl}}" class="rounded-circle host-img" alt="Hosted By: {{ Flyer.Postedby}}">
+            </a>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h1 *ngIf="Flyer.StartTime" class="display-4 flyer-day" style="margin: 0">
+          <span class="badge badge-secondary">{{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'DD' }}</span>
+        </h1>
+        <p *ngIf="Flyer.StartTime" class="flyer-month">
+          {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'MMM' }}
+        </p>
+        <p *ngIf="Flyer.FormattedAddress">
+          <b>Where:</b> {{ Flyer.FormattedAddress }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <p class="lead">{{ Flyer.Description }}</p>
+>>>>>>> Stashed changes
   </div>
 </div>
