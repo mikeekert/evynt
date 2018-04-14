@@ -1,14 +1,3 @@
-<<<<<<< Updated upstream
-<div class="card flyer-card">
-  <img class="card-img-top flyer-card-img" src="{{ Flyer.Imageurl }}" alt="Card image cap">
-  <div class="card-body">
-    <!--TODO: send flyer into the flyer component-->
-    <h3>{{ Flyer.Title }}
-      <span *ngIf="Flyer.IsFeatured" class="badge badge-info">featured</span>
-    </h3>
-    <p class="card-text">{{ Flyer.Description }}.</p>
-    <a [routerLink]="['/evynt/']" [queryParams]="{ 'identifier': Flyer.SceneIdentifier }" class="card-link" *ngIf="ShowMoreLink">More Info</a>
-=======
 <div class="row featurette">
   <div class="col-md-7">
     <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="{{ Flyer.Imageurl }}"
@@ -52,6 +41,5 @@
   </div>
   <div class="col-md-12">
     <p class="lead">{{ Flyer.Description }}</p>
->>>>>>> Stashed changes
   </div>
 </div>
