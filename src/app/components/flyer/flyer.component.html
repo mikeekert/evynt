@@ -1,16 +1,23 @@
 <div class="row featurette">
-  <div class="col-md-7">
-<<<<<<< HEAD
+
+  <!-- Flyer image left-half -->
+  <div class="col-md-5">
     <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="{{ Flyer.Imageurl }}"
       data-holder-rendered="true">
-=======
-    <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="{{ Flyer.Imageurl }}" data-holder-rendered="true" >
->>>>>>> develop
   </div>
-  <div class="col-md-5">
+  <!-- Flyer image left-half -->
+
+
+  <!-- Flyer details right half -->
+  <div class="col-md-7">
     <div class="row">
-      <div class="col-md-10">
-        <h3 class="featurette-heading" *ngIf="ShowProfileLink">
+      <!-- Flyer user image 100% -->
+      <div *ngIf="Flyer.UserImageUrl" class="col-md-12 d-flex align-items-center">
+        <a [routerLink]="['/profile/']" [queryParams]="{ 'id': Flyer.UserId }" class="flyer-usr-img">
+          <img data-toggle="tooltip" title="Hosted By: {{ Flyer.Postedby}}" src="{{ Flyer.UserImageUrl}}" class="rounded-circle host-img"
+            alt="Hosted By: {{ Flyer.Postedby}}">
+        </a>
+        <h3 class="featurette-heading col-md" *ngIf="ShowProfileLink">
           <a [routerLink]="['/evynt/']" [queryParams]="{ 'identifier': Flyer.SceneIdentifier }">{{ Flyer.Title }}</a>
           <span *ngIf="Flyer.IsFeatured" class="badge badge-info">featured</span>
         </h3>
@@ -19,44 +26,31 @@
           <span *ngIf="Flyer.IsFeatured" class="badge badge-info">featured</span>
         </h2>
       </div>
-      <div class="col-md-4 text-center">
-<<<<<<< HEAD
-        <!-- <div class="container d-flex h-100" *ngIf="Flyer.UserImageUrl">
-=======
-        <div class="container d-flex h-100" *ngIf="Flyer.UserImageUrl">
->>>>>>> develop
-          <div class="row">
-            <a [routerLink]="['/profile/']" [queryParams]="{ 'id': Flyer.UserId }">
-              <img data-toggle="tooltip" title="Hosted By: {{ Flyer.Postedby}}" src="{{ Flyer.UserImageUrl}}" class="rounded-circle host-img" alt="Hosted By: {{ Flyer.Postedby}}">
-            </a>
-          </div>
-<<<<<<< HEAD
-        </div> -->
-=======
-        </div>
->>>>>>> develop
-      </div>
+      <!-- Flyer user image 100% -->
     </div>
+
     <div class="row">
-      <div class="col-md-12">
-<<<<<<< HEAD
+      <div class="col-md-auto">
         <h1 *ngIf="Flyer.StartTime" class="display-4 flyer-day" style="margin: 0">
           <span class="badge badge-secondary">{{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'DD' }}</span>
         </h1>
-        <p *ngIf="Flyer.StartTime" class="flyer-month">
-          {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'MMM' }}
+        <p *ngIf="Flyer.StartTime" class="text-right">
+            {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'dddd' }}
+          </p>
+        <p *ngIf="Flyer.StartTime" class="flyer-month text-right">
+          {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'MMMM YY' }}
         </p>
-        <p *ngIf="Flyer.FormattedAddress">
-          <b>Where:</b> {{ Flyer.FormattedAddress }}
+        <p *ngIf="Flyer.StartTime" class="text-right">
+            
+            {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'h a' }}
         </p>
-=======
-        <p *ngIf="Flyer.StartTime"><b>When:</b> {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat: 'h:mm A on LL' }}</p>
-        <p *ngIf="Flyer.FormattedAddress"><b>Where:</b> {{ Flyer.FormattedAddress }}</p>
->>>>>>> develop
+
+      </div>
+      <div class="col-md flyer-details">
+        <p> {{ Flyer.Description }} 
+          </p>
       </div>
     </div>
-  </div>
-  <div class="col-md-12">
-    <p class="lead">{{ Flyer.Description }}</p>
+
   </div>
 </div>
