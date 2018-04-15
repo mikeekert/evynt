@@ -1,7 +1,7 @@
-<div class="row featurette">
+<div class="row featurette d-flex justify-content-between container-fluid">
 
   <!-- Flyer image left-half -->
-  <div class="col-md-5">
+  <div class="col-fixed">
     <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="{{ Flyer.Imageurl }}"
       data-holder-rendered="true">
   </div>
@@ -9,8 +9,8 @@
 
 
   <!-- Flyer details right half -->
-  <div class="col-md-7">
-    <div class="row">
+  <div class="col-md">
+    <div class="row flyer-title">
       <!-- Flyer user image 100% -->
       <div *ngIf="Flyer.UserImageUrl" class="col-md-12 d-flex align-items-center">
         <a [routerLink]="['/profile/']" [queryParams]="{ 'id': Flyer.UserId }" class="flyer-usr-img">
@@ -31,11 +31,11 @@
 
     <div class="row">
       <div class="col-md-auto">
-        <h1 *ngIf="Flyer.StartTime" class="display-4 flyer-day" style="margin: 0">
+        <h1 *ngIf="Flyer.StartTime" class="" style="margin: 0">
           <span class="badge badge-secondary">{{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'DD' }}</span>
         </h1>
         <p *ngIf="Flyer.StartTime" class="flyer-month text-right">
-          {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'MMMM YY' }}
+          {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'MMMM' }} '{{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'YY' }}
         </p>
         <p *ngIf="Flyer.StartTime" class="text-right">
           {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'h a' }}

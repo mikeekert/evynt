@@ -1,37 +1,41 @@
-h1 { 
+h1 {
     margin: 0;
     padding: 0;
 }
 
-.flyer-card {
-    width: 500px;
-    margin: 20px;
-    .flyer-card-img {
-        height: 50%;
-        object-fit: cover;
-        object-position: center;
-    }
+.col-fixed {
+    width: 30%;
 }
 
 .flyer-usr-img {
-        padding-right: 15px;
-        border-right: 1px solid rgb(0, 0, 0);
+    padding-right: 15px;
+    border-right: 1px solid rgb(0, 0, 0);
 }
+
 
 .featurette {
     p {
-    margin: 0;
-    padding: 0;
-    line-height: 1;
+        margin: 0;
+        padding: 0;
+        line-height: 1;
     }
     .flyer-month {
         font-weight: 800;
+    }
+    span {
+        font-size: 100%;
+    }
+    .flyer-desc {
+        padding: 25px 0;
+    }
+    .flyer-title {
+        padding-bottom:25px;
     }
 }
 
 .featurette-heading {
     margin: 0;
-    padding-left:15px;
+    padding-left: 15px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;

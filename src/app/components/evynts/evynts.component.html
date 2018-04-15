@@ -2,7 +2,7 @@
      [infiniteScrollDistance]="2"
      [infiniteScrollThrottle]="50"
      (scrolled)="onScroll()">
-  <app-flyer [Flyer]="flyer" [ShowProfileLink]="true" class="flyer-container d-flex jumbotron" *ngFor="let flyer of Flyers"></app-flyer>
+  <app-flyer [Flyer]="flyer" [ShowProfileLink]="true" class="flyer-container d-flex jumbotron justify-content-start" *ngFor="let flyer of Flyers"></app-flyer>
 </div>
 <div class="container" *ngIf="Flyers == null || Flyers.length == 0">
   <div class="row align-items-start">
