@@ -34,21 +34,15 @@
         <h1 *ngIf="Flyer.StartTime" class="display-4 flyer-day" style="margin: 0">
           <span class="badge badge-secondary">{{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'DD' }}</span>
         </h1>
-        <p *ngIf="Flyer.StartTime" class="text-right">
-            {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'dddd' }}
-          </p>
         <p *ngIf="Flyer.StartTime" class="flyer-month text-right">
           {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'MMMM YY' }}
         </p>
         <p *ngIf="Flyer.StartTime" class="text-right">
-            
-            {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'h a' }}
+          {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'h a' }}
         </p>
-
       </div>
       <div class="col-md flyer-details">
-        <p> {{ Flyer.Description }} 
-          </p>
+        <p>{{ Flyer.Description }}</p>
       </div>
     </div>
 
