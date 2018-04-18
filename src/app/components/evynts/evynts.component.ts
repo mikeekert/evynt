@@ -21,9 +21,8 @@ export class EvyntsComponent implements OnInit {
   }
 
   private getEvynts() {
-    let latitude = localStorage.getItem("latitude");
-    let longitude = localStorage.getItem("longitude");
-
+    const latitude = localStorage.getItem('latitude');
+    const longitude = localStorage.getItem('longitude');
     if (navigator.geolocation) {
 
       if (latitude == null && longitude == null) {
@@ -32,12 +31,10 @@ export class EvyntsComponent implements OnInit {
           localStorage.setItem('longitude', position.coords.longitude.toString());
           this.getEvyntWithLocation(position.coords.latitude, position.coords.longitude);
         });
-      }
-      else {
+      } else {
         this.getEvyntWithLocation(Number(latitude), Number(longitude));
       }
-    }
-    else {
+    } else {
       this.evyntService.get(this.pageSize, this.page).subscribe(response => {
         response.data.forEach((item) => {
             this
@@ -57,5 +54,4 @@ export class EvyntsComponent implements OnInit {
         });
       });
   }
-
 }
