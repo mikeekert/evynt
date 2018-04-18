@@ -22,12 +22,12 @@ export interface ApiPostResponse {
 }
 
 
-export interface ApiPagedResponse<TResponse>{
-  'data' : TResponse,
-  'total' : number,
-  'page' : number
+export interface ApiPagedResponse<TResponse> {
+  'data': TResponse;
+  'total': number;
+  'page': number;
 }
 
-export interface ApiResponse<TResponse>{
-  'data' : TResponse
+export interface ApiResponse<TResponse> {
+  'data': TResponse;
 }
