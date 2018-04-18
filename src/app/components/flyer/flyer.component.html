@@ -1,20 +1,21 @@
-
-  <!-- Flyer image left-half -->
-  <div class="col-fixed">
-    <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="{{ Flyer.Imageurl }}"
-      data-holder-rendered="true">
+<div class="row">
+  <div class="col-md-5">
+    <!-- Flyer image left-half -->
+    <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500"
+         src="{{ Flyer.Imageurl }}"
+         data-holder-rendered="true">
+    <!-- Flyer image left-half -->
   </div>
-  <!-- Flyer image left-half -->
-
-  <!-- Flyer details right half -->
-  <div class="col-md d-flex flex-column">
+  <div class="col-md-7 d-flex flex-column">
+    <!-- Flyer details right half -->
     <div class="flyer-title">
       <!-- Flyer user image 100% -->
       <div *ngIf="Flyer.UserImageUrl" class="d-flex align-items-top">
         <div class="user align-items-center d-flex">
           <a [routerLink]="['/profile/']" [queryParams]="{ 'id': Flyer.UserId }" class="flyer-usr-img">
-            <img data-toggle="tooltip" title="Hosted By: {{ Flyer.Postedby }}" src="{{ Flyer.UserImageUrl }}" class="rounded-circle host-img"
-              alt="Hosted By: {{ Flyer.Postedby }}">
+            <img data-toggle="tooltip" title="Hosted By: {{ Flyer.Postedby }}" src="{{ Flyer.UserImageUrl }}"
+                 class="rounded-circle host-img"
+                 alt="Hosted By: {{ Flyer.Postedby }}">
           </a>
           <span class="featurette-heading align-items-center" *ngIf="ShowProfileLink">
             <a [routerLink]="['/evynt/']" [queryParams]="{ 'identifier': Flyer.SceneIdentifier }">{{ Flyer.Title }}</a>
@@ -22,14 +23,15 @@
           </span>
         </div>
 
-        
+
         <h2 class="featurette-heading" *ngIf="!ShowProfileLink">
           {{ Flyer.Title }}
           <span *ngIf="Flyer.IsFeatured" class="badge badge-info">featured</span>
         </h2>
         <div class="col-md-auto p-0 ml-auto">
           <h1 *ngIf="Flyer.StartTime" class="text-right" style="margin: 0">
-            <span class="badge badge-secondary">{{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'DD' }}</span>
+            <span
+              class="badge badge-secondary">{{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'DD' }}</span>
           </h1>
           <p *ngIf="Flyer.StartTime" class="flyer-month text-right m-0">
             {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'MMMM' }}
@@ -47,5 +49,7 @@
         <p>{{ Flyer.Description }}</p>
       </div>
     </div>
-
   </div>
+</div>
+
+
