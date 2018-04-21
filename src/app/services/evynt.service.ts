@@ -5,9 +5,9 @@ import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Subscription } from 'rxjs/Subscription';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {ApiEvyntResponse, ApiUserResponse} from "../models/apiEvyntResponse";
-import {ApiResponse} from "../models/post";
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {ApiEvyntResponse, ApiUserResponse} from '../models/apiEvyntResponse';
+import {ApiResponse} from '../models/post';
 
 @Injectable()
 export class EvyntService {
@@ -31,7 +31,7 @@ export class EvyntService {
   get(pageSize: number,  page: number, latitude: number = null,  longitude: number = null) {
     let feedApiUrn = `api/Evynt?ShowFeaturedOnly=false&PageSize=${pageSize}&Page=${page}`;
 
-    if (latitude && longitude){
+    if (latitude && longitude) {
       feedApiUrn += `&Latitude=${latitude}&Longitude=${longitude}`;
     }
 
@@ -53,7 +53,7 @@ export class EvyntService {
       });
     }
 
-  getByUser(userId: string, pageSize: number,  page: number,){
+  getByUser(userId: string, pageSize: number,  page: number, ) {
     const feedApiUrn = `api/Evynt/${userId}/PageSize/${pageSize}/Page/${page}`;
     const apiUrl = `${this.apiUriBase}/${feedApiUrn}`;
     return this
