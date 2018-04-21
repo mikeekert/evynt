@@ -8,7 +8,7 @@
     "start-uat": "ng serve --e=uat",
     "build": "ng build --prod",
     "build-dev": "ng build --dev --e=dev",
-    "build-uat": "ng build --prod --e=uat",
+    "build-uat": "ng build --e=uat",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
