@@ -12,7 +12,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "configure-beanstalk-uat" : "mkdirp dist/.ebextensions/httpd/conf.d/elasticbeanstalk/ | ncp elasticbeanstalkConfig/00_application_UAT.conf dist/.ebextensions/httpd/conf.d/elasticbeanstalk/00_application.conf"
+    "make-beanstalk-config-dir" : "mkdirp dist/.ebextensions/httpd/conf.d/elasticbeanstalk/",
+    "cp-configure-beanstalk-uat" : "ncp elasticbeanstalkConfig/00_application_UAT.conf dist/.ebextensions/httpd/conf.d/elasticbeanstalk/00_application.conf"
   },
   "private": true,
   "dependencies": {
