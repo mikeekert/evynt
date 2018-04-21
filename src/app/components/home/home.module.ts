@@ -7,7 +7,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FeedModule} from '../feed/feed.module';
 import {EvyntService} from '../../services/evynt.service';
 import {PostService} from '../../services/post.service';
-import {RouterModule} from "@angular/router";
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   imports: [

@@ -15,11 +15,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'index.html',
-    redirectTo: '/welcome',
-    pathMatch: 'full'
-  },
-  {
     path: '',
     component: BasicLayoutComponent,
     children: [
