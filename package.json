@@ -8,11 +8,12 @@
     "start-uat": "ng serve --e=uat",
     "build": "ng build --prod",
     "build-dev": "ng build --dev --e=dev",
-    "build-uat": "ng build --prod --e=uat",
+    "build-uat": "ng build --e=uat",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "configure-beanstalk-uat" : "node_modules/mkdirp/bin/cmd.js dist/.ebextensions/httpd/conf.d/elasticbeanstalk/ | node_modules/ncp/bin/ncp elasticbeanstalkConfig/00_application_UAT.conf dist/.ebextensions/httpd/conf.d/elasticbeanstalk/00_application.conf"
+    "make-beanstalk-config-dir" : "mkdirp dist/.ebextensions/httpd/conf.d/elasticbeanstalk/",
+    "cp-configure-beanstalk-uat" : "ncp elasticbeanstalkConfig/00_application_UAT.conf dist/.ebextensions/httpd/conf.d/elasticbeanstalk/00_application.conf"
   },
   "private": true,
   "dependencies": {
