@@ -32,11 +32,11 @@
     </div>
     <div class="col-md-2 col-3">
       <div class="col-md-auto p-0 ml-auto text-center">
-        <h3 *ngIf="Flyer.StartTime" class="m-0">
+        <h1 *ngIf="Flyer.StartTime" class="m-0 h3">
           <span class="badge badge-secondary">
             {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'MMMM' }}
           </span>
-        </h3>
+        </h1>
         <p *ngIf="Flyer.StartTime" class="m-0">
           {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'DD' }}
         </p>
