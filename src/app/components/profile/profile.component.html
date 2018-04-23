@@ -5,5 +5,5 @@
      [infiniteScrollDistance]="2"
      [infiniteScrollThrottle]="50"
      (scrolled)="onScroll()">
-  <app-flyer [Flyer]="flyer" [ShowProfileLink]="true" class="flyer-container d-flex jumbotron" *ngFor="let flyer of Flyers"></app-flyer>
+  <app-flyer [Flyer]="flyer" [ShowProfileLink]="true" [ShowShortDescription]="true" class="flyer-container row d-flex jumbotron" *ngFor="let flyer of Flyers"></app-flyer>
 </div>
