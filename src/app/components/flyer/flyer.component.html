@@ -48,7 +48,20 @@
   </div>
   <div class="flex-fill">
     <div class="col-md flyer-details">
-      <p>{{ Flyer.Description }}</p>
+      <p>
+        <a href="https://maps.google.com/?q={{Flyer.FormattedAddress}}" target="_blank"><i class="fas fa-map-marker-alt"></i> {{Flyer.FormattedAddress}}</a>
+      </p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-12 col-12">
+  <div class="flex-fill">
+    <div class="col-md flyer-details">
+      <p>{{ ShowShortDescription ? Flyer.ShortDescription() : Flyer.Description }}
+        <br>
+        <br>
+        <a [routerLink]="['/evynt/']" *ngIf="ShowShortDescription" [queryParams]="{ 'identifier': Flyer.SceneIdentifier }">More Info</a>
+      </p>
     </div>
   </div>
 </div>

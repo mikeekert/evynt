@@ -11,6 +11,10 @@ export class FlyerComponent implements OnInit {
   @Input()
   ShowProfileLink: boolean;
 
+
+  @Input()
+  ShowShortDescription = false;
+
   constructor() {}
 
   ngOnInit() {
