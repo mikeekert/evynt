@@ -1,12 +1,12 @@
 <section class="container-fluid p-0">
   <div class="w-auto my-0 m-auto">
-    <ngb-carousel>
+    <ngb-carousel [wrap] = "true">
       <ng-template ngbSlide *ngFor="let i of CarouselFeed">
         <div class="carousel-container" [ngStyle]="{'background-image': 'url(' + i.Imageurl + ')'}">
         </div>
         <div class="carousel-caption">
           <h3><a [routerLink]="['/evynt/']" [queryParams]="{ 'identifier': i.SceneIdentifier }">{{i.Title}}</a></h3>
-          <p>{{i.Description}}</p>
+          <p>{{i.ShortDescription()}} <a [routerLink]="['/evynt/']" [queryParams]="{ 'identifier': i.SceneIdentifier }">More Info...</a></p>
         </div>
       </ng-template>
     </ngb-carousel>
