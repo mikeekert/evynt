@@ -3,6 +3,10 @@
     background-position: center;
     background-size: cover;
 }
-.carousel-caption > h3 > a{
+.carousel-caption a{
   color: white;
+}
+
+.carousel-caption {
+  text-shadow: 2px 2px 4px #000000;
 }

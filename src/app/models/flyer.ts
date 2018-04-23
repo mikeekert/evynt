@@ -1,4 +1,4 @@
-import {ApiEvyntResponse} from "./apiEvyntResponse";
+import {ApiEvyntResponse} from './apiEvyntResponse';
 
 export class Flyer {
   Imageurl: string;
@@ -13,6 +13,7 @@ export class Flyer {
   FormattedAddress: string;
   GooglePlacesId: string;
 
+  private shortDescriptionLength = 145;
   constructor(api: ApiEvyntResponse) {
     this.Imageurl = api.imageUrl;
     this.Title = api.name;
@@ -25,6 +26,14 @@ export class Flyer {
     this.StartTime = api.startTime;
     this.FormattedAddress = api.formattedAddress;
     this.GooglePlacesId = api.googleplacesId;
+  }
+
+  ShortDescription(): String {
+    if (this.Description && this.Description.length > this.shortDescriptionLength) {
+      return this.Description.substring(0, this.shortDescriptionLength) + ' ...';
+    }
+
+    return this.Description;
   }
 }
 
