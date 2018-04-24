@@ -20,7 +20,7 @@
     </div>
     <div class="col-md-10 col-9">
       <!-- Flyer user image 100% -->
-      <div *ngIf="Flyer.UserImageUrl" class="d-flex align-items-top">
+      <div *ngIf="Flyer.UserImageUrl && ShowProfileImage" class="d-flex align-items-top">
         <div class="user align-items-center d-flex">
           <a [routerLink]="['/profile/']" [queryParams]="{ 'id': Flyer.UserId }" class="flyer-usr-img">
             <img data-toggle="tooltip" title="Hosted By: {{ Flyer.Postedby }}" src="{{ Flyer.UserImageUrl }}" class="rounded-circle host-img"
