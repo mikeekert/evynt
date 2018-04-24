@@ -1,8 +1,8 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {ApiUserResponse} from "../../models/apiEvyntResponse";
-import {Flyer} from "../../models/flyer";
-import {EvyntService} from "../../services/evynt.service";
+import {ApiUserResponse} from '../../models/apiEvyntResponse';
+import {Flyer} from '../../models/flyer';
+import {EvyntService} from '../../services/evynt.service';
 
 @Component({selector: 'app-profile', templateUrl: './profile.component.html', styleUrls: ['./profile.component.scss']})
 export class ProfileComponent implements OnInit, OnDestroy {
@@ -30,10 +30,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.getEvynts();
   }
 
-  getEvynts(){
-    this.evyntService.getByUser(this.id, this.pageSize, this.page).subscribe((response) =>
-    {
-      let evynt = response.data[0];
+  getEvynts() {
+    this.evyntService.getByUser(this.id, this.pageSize, this.page).subscribe((response) => {
+      const evynt = response.data[0];
       this.UserName = evynt.postedBy;
       this.UserImageUrl = evynt.userImageUrl;
       response.data.forEach((item) => {

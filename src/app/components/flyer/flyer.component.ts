@@ -11,9 +11,11 @@ export class FlyerComponent implements OnInit {
   @Input()
   ShowProfileLink: boolean;
 
-
   @Input()
   ShowShortDescription = false;
+
+  @Input()
+  ShowProfileImage = true;
 
   constructor() {}
 
