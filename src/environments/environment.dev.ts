@@ -12,12 +12,14 @@ export const environment = {
     databaseURL: 'https://citiskope-dev.firebaseio.com',
     projectId: 'citiskope-dev',
     storageBucket: 'citiskope-dev.appspot.com',
-    messagingSenderId: '147360091648'
+    messagingSenderId: '147360091648',
+    user: 'webapp@test.com',
+    password: 'webapp123'
   },
   citiskopeApi: {
     baseUrl: 'https://dev-api.citiskope.com'
   },
-  angularJwt :{
+  angularJwt : {
     whitelistedDomains : ['dev-api.citiskope.com']
   }
 };
