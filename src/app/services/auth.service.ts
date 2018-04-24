@@ -14,10 +14,7 @@ export class AuthService {
       this.signInToFirebase();
     }
 
-    this
-      .afAuth
-      .authState
-      .subscribe((user: User) => {
+    this.afAuth.authState.subscribe((user: User) => {
         if (user == null) {
           this.signInToFirebase();
         } else {
@@ -39,11 +36,7 @@ export class AuthService {
     return !this.jwtHelper.isTokenExpired();
   }
   private signInToFirebase() {
-    this
-      .afAuth
-      .app
-      .auth()
-      .signInAnonymously()
+    this.afAuth.app.auth().signInWithEmailAndPassword(environment.firebase.user, environment.firebase.password)
       .catch(function (error) {
         // Handle Errors here.
         const errorCode = error.code;
