@@ -3,6 +3,6 @@
 <h1> {{ UserName }} </h1>
 </div>
 <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
-  <app-flyer [Flyer]="flyer" [ShowProfileLink]="true" [ShowShortDescription]="true" [ShowProfileImage]="false" class="flyer-container row d-flex jumbotron"
+  <app-flyer [Flyer]="flyer" [ShowProfileLink]="true" [ShowShortDescription]="true" [ShowProfileImage]="false" class="flyer-container row d-flex jumbotron p-4"
     *ngFor="let flyer of Flyers"></app-flyer>
 </div>
