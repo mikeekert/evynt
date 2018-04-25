@@ -1,9 +1,9 @@
-<div class="col-lg-5 col-12">
+<div class="col-md-5">
   <!-- Flyer image left-half -->
   <img class="img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="{{ Flyer.Imageurl }}" data-holder-rendered="true">
   <!-- Flyer image left-half -->
 </div>
-<div class="col-lg-7 col-12 d-flex flex-column">
+<div class="col-md-7 d-flex flex-column">
   <!-- Flyer details right half -->
   <div>
     <div class="col-md-12 pb-4 p-0">
@@ -17,34 +17,38 @@
           <span *ngIf="Flyer.IsFeatured" class="badge badge-info">Featured</span>
         </span>
       </div>
+
     </div>
-    <div class="col-md-10 col-9" *ngIf="Flyer.UserImageUrl && ShowProfileImage">
-      <!-- Flyer user image 100% -->
-      <div class="d-flex align-items-top">
-        <div class="user align-items-center d-flex">
-          <a [routerLink]="['/profile/']" [queryParams]="{ 'id': Flyer.UserId }" class="flyer-usr-img">
-            <img data-toggle="tooltip" title="Hosted By: {{ Flyer.Postedby }}" src="{{ Flyer.UserImageUrl }}" class="rounded-circle host-img"
-              alt="Hosted By: {{ Flyer.Postedby }}">
-          </a>
-        </div>
-      </div>
-      <!-- Flyer user image 100% -->
+
+    <div class="d-flex">
+        <div *ngIf="Flyer.UserImageUrl && ShowProfileImage" class="user-block col-md-3">
+            <!-- Flyer user image 100% -->
+            <div class="user">
+              <a [routerLink]="['/profile/']" [queryParams]="{ 'id': Flyer.UserId }" class="flyer-usr-img">
+                <img data-toggle="tooltip" title="Hosted By: {{ Flyer.Postedby }}" src="{{ Flyer.UserImageUrl }}" class="rounded-circle host-img"
+                  alt="Hosted By: {{ Flyer.Postedby }}">
+              </a>
+            </div>
+            <!-- Flyer user image 100% -->
+          </div>
+          <div class="date-block col-auto ml-auto">
+            <div class="col-md-auto p-0 ml-auto text-left">
+              <h1 *ngIf="Flyer.StartTime" class="m-0 h3">
+                <span class="badge badge-secondary">
+                  {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'MMM' }}
+                </span>
+              </h1>
+              <p *ngIf="Flyer.StartTime" class="m-0 date-badge">
+                {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'DD' }}
+              </p>
+              <!-- <p *ngIf="Flyer.StartTime" class="m-0">
+                {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'h a' }}
+              </p> -->
+            </div>
+          </div>
     </div>
-    <div>
-      <div class="col-md-auto p-0 ml-auto text-left">
-        <h1 *ngIf="Flyer.StartTime" class="m-0 h3">
-          <span class="badge badge-secondary">
-            {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'MMM' }}
-          </span>
-        </h1>
-        <p *ngIf="Flyer.StartTime" class="m-0 date-badge">
-          {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'DD' }}
-        </p>
-        <!-- <p *ngIf="Flyer.StartTime" class="m-0">
-          {{ Flyer.StartTime.concat('Z') | amUtc | amLocal | amDateFormat:'h a' }}
-        </p> -->
-      </div>
-    </div>
+
+
   </div>
   <div class="flex-fill">
     <div class="col-md flyer-details">
@@ -54,7 +58,7 @@
     </div>
   </div>
 </div>
-<div class="col-lg-12 col-12">
+<div class="col-md-12">
   <div class="flex-fill">
     <div class="col-md flyer-details">
       <p>{{ ShowShortDescription ? Flyer.ShortDescription() : Flyer.Description }}
