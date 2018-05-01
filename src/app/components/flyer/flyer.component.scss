@@ -8,12 +8,20 @@ h1 {
 }
 
 .flyer-usr-img {
-    padding: 5px;
+    padding: 5px 0;
     max-height: 66px;
 }
 
 .user {
-    max-height: 66px;
+    padding: 5px 0;
+}
+
+.user-block {
+    padding: 0;
+}
+
+.column-info {
+    width: 150px;
 }
 
 .featurette {
@@ -68,7 +76,7 @@ h1 {
 }
 
 .date-badge {
-    font-size: 4vw;
+    font-size: 2em;
     padding: 0 0 5px 0;
     height: auto;
     line-height: 1;
