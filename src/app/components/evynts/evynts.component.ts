@@ -24,7 +24,6 @@ export class EvyntsComponent implements OnInit {
     const latitude = localStorage.getItem('latitude');
     const longitude = localStorage.getItem('longitude');
     if (navigator.geolocation) {
-
       if (latitude == null && longitude == null) {
         navigator.geolocation.getCurrentPosition((position) => {
           localStorage.setItem('latitude', position.coords.latitude.toString());

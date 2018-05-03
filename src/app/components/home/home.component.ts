@@ -3,7 +3,8 @@ import {EvyntService} from '../../services/evynt.service';
 import {Flyer} from '../../models/flyer';
 import {Post} from '../../models/post';
 import {PostService} from '../../services/post.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+
 
 @Component({selector: 'app-home', templateUrl: './home.component.html', styleUrls: ['./home.component.scss']})
 export class HomeComponent implements OnInit {

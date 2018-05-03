@@ -28,6 +28,7 @@
     "@angular/router": "^5.2.10",
     "@auth0/angular-jwt": "^1.1.0",
     "@ng-bootstrap/ng-bootstrap": "^1.1.2",
+    "@types/zipcodes": "^6.0.0",
     "angular2-moment": "^1.8.0",
     "angularfire2": "^5.0.0-rc.5-next",
     "core-js": "^2.5.5",
@@ -36,7 +37,7 @@
     "npm": "^5.8.0",
     "rxjs": "^5.5.10",
     "update": "^0.7.4",
-    "zipcode": "^0.1.1",
+    "zipcodes": "^6.0.0",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

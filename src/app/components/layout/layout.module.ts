@@ -9,10 +9,12 @@ import {NavComponent} from '../nav/nav.component';
 import {AppRoutingModule} from '../../routing/app-routing-module';
 import {NgbCollapseModule} from '@ng-bootstrap/ng-bootstrap';
 import {EvyntProfileModule} from '../evynt-profile/evynt-profile.module';
+import { LocationComponent } from '../location/location.component';
+
 
 @NgModule({
   declarations: [
-    BasicLayoutComponent, NavComponent
+    BasicLayoutComponent, NavComponent, LocationComponent
   ],
   imports: [
     CommonModule,
