@@ -1,3 +1,9 @@
-<p>
-  location works!
+<p class="nav-location" *ngIf="location">
+  <i class="fas fa-location-arrow"></i>
+  {{ location.city }}
+</p>
+
+<p *ngIf="!location">
+  <i class="fas fa-location-arrow"></i>
+  Add a location
 </p>
