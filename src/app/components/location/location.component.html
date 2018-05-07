@@ -1,9 +1,28 @@
-<p class="nav-location" *ngIf="location">
-  <i class="fas fa-location-arrow"></i>
-  {{ location.city }}
+<p class="nav-location">
+  <span *ngIf="location"><i class="fas fa-location-arrow"></i> {{ location.city }} |</span>
+  <a type="text" (click)="open(content)">Change Location</a>
 </p>
 
-<p *ngIf="!location">
+<!-- <p *ngIf="!location">
   <i class="fas fa-location-arrow"></i>
-  Add a location
+  <a type="text" (click)="open(content)">Change Location</a>
+</p> -->
+
+<ng-template #content let-c="close" let-d="dismiss">
+<div class="modal-header">
+  <h4 class="modal-title">Change Location:</h4>
+  <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+<input #zipcodeField type="text" name="zipcode" id="#zipcodeField">
+<button type="submit" class="btn btn-dark" (click)="getLocationByZip(zipcodeField.value); c('Close click')">Enter</button>
+<p>
+  <a (click)="changeZip(); c('Close click')" >Find my location</a>
 </p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-dark" (click)="c('Close click')">Close</button>
+</div>
+</ng-template>
