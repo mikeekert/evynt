@@ -16,6 +16,17 @@ export class LocationComponent implements OnInit {
     const latitude = localStorage.getItem('latitude');
     const longitude = localStorage.getItem('longitude');
 
+    if (navigator.geolocation) {
+      if (latitude == null && longitude == null) {
+          navigator.geolocation.getCurrentPosition((position) => {
+          localStorage.setItem('latitude', position.coords.latitude.toString());
+          localStorage.setItem('longitude', position.coords.longitude.toString());
+          this.location = zipcode.lookupByCoords(latitude, longitude)
+        });
+      } else {
+        this.location = zipcode.lookupByCoords(latitude, longitude)
+      }
+    }
   }
 
   getLocationByZip(zip: string) {
