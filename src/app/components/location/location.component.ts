@@ -8,12 +8,14 @@ export class LocationComponent implements OnInit {
   private location: zipcode.ZipCode;
 
   closeResult: string;
+  location_loading: boolean;
 
   constructor(private modalService: NgbModal) {}
 
   ngOnInit() {
     const latitude = localStorage.getItem('latitude');
     const longitude = localStorage.getItem('longitude');
+
   }
 
   getLocationByZip(zip: string) {
@@ -21,6 +23,7 @@ export class LocationComponent implements OnInit {
   }
 
   changeZip() {
+    this.location_loading = true;
     navigator
       .geolocation
       .getCurrentPosition((position) => {
@@ -36,8 +39,8 @@ export class LocationComponent implements OnInit {
         localStorage.setItem('latitude', latitude);
         localStorage.setItem('longitude', longitude);
         this.location = zipcode.lookupByCoords(latitude, longitude);
+        this.location_loading = false;
       });
-      console.log(this.location);
   }
 
   open(content) {
