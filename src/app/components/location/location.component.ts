@@ -21,15 +21,15 @@ export class LocationComponent implements OnInit {
           navigator.geolocation.getCurrentPosition((position) => {
           localStorage.setItem('latitude', position.coords.latitude.toString());
           localStorage.setItem('longitude', position.coords.longitude.toString());
-          this.location = zipcode.lookupByCoords(latitude, longitude)
+          this.location = zipcode.lookupByCoords(latitude, longitude);
         });
       } else {
-        this.location = zipcode.lookupByCoords(latitude, longitude)
+        this.location = zipcode.lookupByCoords(latitude, longitude);
       }
     }
   }
 
-  getLocationByZip(zip: string) {
+  getLocationByZip(zip: number) {
     this.location = zipcode.lookup(zip);
   }
 
