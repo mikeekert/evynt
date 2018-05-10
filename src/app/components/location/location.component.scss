@@ -2,6 +2,14 @@
     color: #fff;
     margin: 0;
 }
+.change-location{
+    color: rgb(110, 110, 110);
+    font-weight: 400;
+}
+
+.change-location:hover {
+    color: rgb(248, 0, 70);
+}
 
 button {
     cursor: pointer;

@@ -31,6 +31,7 @@ export class LocationComponent implements OnInit {
 
   getLocationByZip(zip: number) {
     this.location = zipcode.lookup(zip);
+    // TO DO: set coords based on zipcode?
   }
 
   changeZip() {

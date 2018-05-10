@@ -1,7 +1,12 @@
 <p class="nav-location" *ngIf="!location_loading">
   <span *ngIf="location">
-    <i class="fas fa-location-arrow"></i> {{ location.city }} |</span>
-  <a type="text" (click)="open(content)">Change Location</a>
+    {{ location.city }} |</span>
+  <a type="text" (click)="open(content)">
+    <span class="change-location">
+      <i class="fas fa-map-marker-alt"></i>
+      Change Location
+    </span>
+  </a>
 </p>
 <span *ngIf="location_loading" class="loading">
   <i class="fas fa-spinner fa-spin"></i>
