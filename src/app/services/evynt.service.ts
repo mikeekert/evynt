@@ -2,9 +2,7 @@ import {Injectable} from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import {environment} from '../../environments/environment';
 
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import { Subscription } from 'rxjs/Subscription';
+import {Observable,  Subscription } from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {ApiEvyntResponse, ApiUserResponse} from '../models/apiEvyntResponse';
 import {ApiResponse} from '../models/post';
